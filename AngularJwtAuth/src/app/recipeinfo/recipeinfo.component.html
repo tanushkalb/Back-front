@@ -1,0 +1,29 @@
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>{{'Title' | translate}}</th>
+    <th>{{'Description' | translate}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class="hidden">{{recipes?.id }}}</td>
+    <td>{{recipes?.title}}</td>
+    <td>{{recipes?.description}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="form-group">
+
+  <tr *ngFor="let comment of comments">
+    <td>{{comment.description}}</td>
+    <td><button class="btn btn-success" (click)="createLike()" style="margin-left: 20px;"> like</button></td>
+  </tr>
+  <input [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control" id="firstName">
+  <button class="btn btn-success" (click)="createComment()">{{'CommentButton' | translate}}</button>
+
+</div>
+

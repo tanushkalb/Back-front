@@ -1,0 +1,38 @@
+.back {
+  min-height: 100%;
+  width:100%;
+  background-size: cover;
+}
+
+
+/*.back{*/
+  /*background:#37af49;*/
+/*}*/
+
+.cc{
+  display:block;
+  float:left;
+  margin:0 16px 0 0;
+  box-shadow:0 0 0 4px #ffffff;
+  padding:0;
+  width:32px;
+  height:32px;
+  cursor:pointer;
+  transition:all 0.45s cubic-bezier(.71,.5,0,.98);
+}
+
+.cc:hover{
+  box-shadow:0 0 0 2px #ffffff, inset 0 0 0 8px #ffffff;
+  opacity:0.8;
+}
+.parallax {
+  /* The image used */
+  /*background-image: url('https://bipbap.ru/wp-content/uploads/2017/10/0_8eb56_842bba74_XL-640x400.jpg');*/
+  /*!* Full height *!*/
+  /*height: 100%;*/
+  /*!* Create the parallax scrolling effect *!*/
+  /*background-attachment: fixed;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+}

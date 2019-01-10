@@ -1,0 +1,20 @@
+
+  <h2 class="text-center">{{'New recipe' | translate}}</h2>
+  <form #f="ngForm">
+    <div class="form-group">
+      <label for="email">{{'Title' | translate}}</label>
+      <input type="email"  [(ngModel)]="recipe.title" placeholder="{{'Title' | translate}}" name="email" class="form-control"
+             #username="ngModel" required id="email">
+      <div *ngIf="f.submitted && username.invalid">
+        <div *ngIf="username.errors.required">{{'Username is required' | translate}}</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">{{'Description' | translate}}</label>
+      <input [(ngModel)]="recipe.description" placeholder="{{'Description' | translate}}" name="firstName" class="form-control" id="firstName">
+    </div>
+    <i class="material-icons">visibility</i>
+    <button class="btn btn-success" (click)="createRecipe()">{{'Create' | translate}}</button>
+    <a href="/recipes" class="btn btn-success">{{'Back' | translate}}</a>
+  </form>

@@ -1,0 +1,17 @@
+<div class="col-md-6">
+  <h2 class="text-center">{{'New recipe' | translate}}</h2>
+  <form>
+    <div class="form-group">
+      <label for="email">{{'Title' | translate}}</label>
+      <input type="email" [(ngModel)]="recipe.title" placeholder="Recipe title" name="email" class="form-control" id="email">
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">{{'Description' | translate}}</label>
+      <input [(ngModel)]="recipe.description" placeholder="Recipe description" name="firstName" class="form-control" id="firstName">
+    </div>
+
+    <button class="btn btn-success" (click)="editRecipe()">{{'Create' | translate}}</button>
+    <a href="/recipes" class="btn btn-success">{{'Back' | translate}}</a>
+  </form>
+</div>
