@@ -74,7 +74,7 @@ export class UserService {
   }
 
   public createLike(like, commentId) {
-    return this.http.post<Like>(this.Url + 'like.ts/Like' + this.tokenStorage.getUser().id + '/Like/' + commentId, like);
+    return this.http.post<Like>(this.Url + 'like/user/' + this.tokenStorage.getUser().id + '/comment/' + commentId, like);
   }
 
   public updateRecipe(recipe) {

@@ -17,6 +17,8 @@ export class RecipeinfoComponent implements OnInit {
 
   likes: Like[];
 
+  fff: boolean = true;
+
   comment: Comment = new Comment();
 
   comments: Comment[];
@@ -34,8 +36,9 @@ export class RecipeinfoComponent implements OnInit {
     this.userService.getCommentByReceptId(this.recipeId)
       .subscribe(data => {
         this.comments = data;
+        console.log(data);
       });
-    this.userService.getLikesByIdComment(this.)
+   // this.userService.getLikesByIdComment(this.comment.)
   }
 //Добавить таймер для обновления комментов из базы
   createComment(): void {
@@ -48,8 +51,10 @@ export class RecipeinfoComponent implements OnInit {
       );
   }
 
-  createLike(): void {
-    this.li
+  createLike(commentId): void {
+    this.like.isActive = this.fff;
+    console.log(this.like);
+    this.userService.createLike(this.like, commentId).subscribe();
 
   }
 }

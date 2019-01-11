@@ -1,13 +1,9 @@
-import {enableProdMode, OnInit} from '@angular/core';
+import {enableProdMode} from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
-import {TokenStorageService} from './app/auth/token-storage.service';
-import {UserService} from './app/services/user.service';
-import {Router} from '@angular/router';
-import {AuthService} from './app/auth/auth.service';
-import {User} from './app/auth/user';
+import 'hammerjs';
 
 if (environment.production) {
   enableProdMode();

@@ -20,7 +20,7 @@
 
   <tr *ngFor="let comment of comments">
     <td>{{comment.description}}</td>
-    <td><button class="btn btn-success" (click)="createLike()" style="margin-left: 20px;"> like</button></td>
+      <td><button class="btn btn-success" [ngStyle]="{background: like.isActive==true?'red': 'blue'}" (click)="createLike(comment.id)" style="margin-left: 20px;"> like</button></td>
   </tr>
   <input [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control" id="firstName">
   <button class="btn btn-success" (click)="createComment()">{{'CommentButton' | translate}}</button>
