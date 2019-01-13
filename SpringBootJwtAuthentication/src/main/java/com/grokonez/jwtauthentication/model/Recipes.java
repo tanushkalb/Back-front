@@ -3,6 +3,7 @@ package com.grokonez.jwtauthentication.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "recipes")
@@ -16,8 +17,14 @@ public class Recipes {
 
     @JsonIgnore
     @ManyToOne()
-    @JoinColumn(name = "recipes_id")
+    @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "recipe")
+    private Set<Rating> rating;
+
+    @OneToMany(mappedBy = "recipe")
+    private Set<Comments> comments;
 
     public Long getId() {
         return id;
@@ -49,5 +56,21 @@ public class Recipes {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comments> comments) {
+        this.comments = comments;
+    }
+
+    public Set<Rating> getRating() {
+        return rating;
+    }
+
+    public void setRating(Set<Rating> rating) {
+        this.rating = rating;
     }
 }

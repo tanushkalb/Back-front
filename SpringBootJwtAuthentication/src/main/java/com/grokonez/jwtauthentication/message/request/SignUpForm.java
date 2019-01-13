@@ -26,6 +26,8 @@ public class SignUpForm {
 
     private int theme;
 
+    private String lang;
+
     public String getName() {
         return name;
     }
@@ -66,11 +68,13 @@ public class SignUpForm {
     	this.role = role;
     }
 
-    public int getTheme() {
-        return theme;
-    }
+    public int getTheme() { return theme; }
 
     public void setTheme(int theme) {
         this.theme = theme;
     }
+
+    public String getLang() { return lang; }
+
+    public void setLang(String lang) { this.lang = lang; }
 }

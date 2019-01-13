@@ -56,7 +56,6 @@ public class RecipesController {
         return recipesRepository.save(recipes);
     }
 
-
     @DeleteMapping("*/{id}")
     public void deleteRecipe(@PathVariable("id") long id) {
         recipesRepository.deleteById(id);

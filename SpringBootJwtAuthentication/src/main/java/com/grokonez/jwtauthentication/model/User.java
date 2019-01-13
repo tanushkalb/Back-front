@@ -9,6 +9,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
@@ -31,6 +32,8 @@ public class User{
 
     private int theme;
 
+    private String lang;
+
     @NotBlank
     @Size(min=3, max = 50)
     private String username;
@@ -51,25 +54,37 @@ public class User{
     	inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+
+
+
+    @OneToMany(mappedBy = "user")
+    private Set<Comments> comments;
+
     @OneToMany(mappedBy = "user")
     private Set<Recipes> recipes;
 
-    public Set<Recipes> getRecipes() {
-        return recipes;
-    }
 
-    public void setRecipes(Set<Recipes> recipes) {
-        this.recipes = recipes;
-    }
+    @OneToMany(mappedBy = "user")
+    private Set<Rating> ratings;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private Set<Likes> likes;
+
+
+
+
+
 
     public User() {}
 
-    public User(String name, String username, String email, String password, int theme) {
+    public User(String name, String username, String email, String password, int theme, String lang) {
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
         this.theme = theme;
+        this.lang = lang;
     }
 
     public Long getId() {
@@ -120,11 +135,47 @@ public class User{
         this.roles = roles;
     }
 
+    public Set<Recipes> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Set<Recipes> recipes) {
+        this.recipes = recipes;
+    }
+
+    public Set<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comments> comments) {
+        this.comments = comments;
+    }
+
     public int getTheme() {
         return theme;
     }
 
     public void setTheme(int theme) {
         this.theme = theme;
+    }
+
+    public String getLang() { return lang; }
+
+    public void setLang(String lang) { this.lang = lang; }
+
+    public Set<Likes> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Set<Likes> likes) {
+        this.likes = likes;
+    }
+
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
     }
 }
