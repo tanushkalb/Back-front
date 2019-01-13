@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, pipe} from 'rxjs';
 import {RecipesInfo} from '../auth/recipes';
 import {TokenStorageService} from '../auth/token-storage.service';
 import {User} from '../auth/user';
 import {Like} from '../auth/like';
+import {Rating} from '../auth/rating';
+import {map} from 'rxjs/operators';
 
 
 @Injectable({
@@ -65,6 +67,11 @@ export class UserService {
     return this.http.get(this.Url + 'like/commentId/' + commentId);
   }
 
+  public getRatingByReceptId(receptId) {
+    return this.http.get<Rating>(this.Url + 'rating/ratingId/' + receptId)
+      .pipe(map(response => response[1]), pipe(map(u => u.rating)));
+  }
+
   public createRecipe(recipe) {
     return this.http.post<RecipesInfo>(this.recipesUrl + '/' + this.tokenStorage.getUser().id, recipe);
   }
@@ -75,6 +82,10 @@ export class UserService {
 
   public createLike(like, commentId) {
     return this.http.post<Like>(this.Url + 'like/user/' + this.tokenStorage.getUser().id + '/comment/' + commentId, like);
+  }
+
+  public createRating(rating, recipeId) {
+    return this.http.post<Rating>(this.Url + 'rating/user/' + this.tokenStorage.getUser().id + '/recipe/' + recipeId, rating);
   }
 
   public updateRecipe(recipe) {

@@ -43,6 +43,7 @@
             </div>
           </li>
         <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('ru')">ru</button></li>
+
         <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('by')">by</button></li>
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">{{'Logout' | translate}}</button>

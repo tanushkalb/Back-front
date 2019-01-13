@@ -12,6 +12,7 @@ export class RecipesComponent implements OnInit {
 
   recipes: RecipesInfo[];
 
+
   constructor(private router: Router, private userService: UserService) {
   }
 
@@ -19,7 +20,6 @@ export class RecipesComponent implements OnInit {
     this.userService.getRecipesByCarrentUser()
       .subscribe(data => {
         this.recipes = data;
-        console.log(data);
       });
   }
 
@@ -41,4 +41,6 @@ export class RecipesComponent implements OnInit {
         this.recipes = this.recipes.filter(u => u !== recipe);
       });
   }
+
+
 }

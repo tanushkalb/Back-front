@@ -40,7 +40,7 @@ export class RecipeinfoComponent implements OnInit {
       });
    // this.userService.getLikesByIdComment(this.comment.)
   }
-//Добавить таймер для обновления комментов из базы
+// Добавить таймер для обновления комментов из базы
   createComment(): void {
     this.userService.createComment(this.comment, this.recipeId)
       .subscribe(() =>
