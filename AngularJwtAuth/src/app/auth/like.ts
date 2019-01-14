@@ -1,4 +1,4 @@
 export class Like {
   id: number;
-  isActive: boolean;
+  click: number = 0;
 }

@@ -1,4 +1,4 @@
-<div *ngIf="tokenStorage.getToken() else loggedOut">
+<div class="semiopacity" *ngIf="tokenStorage.getToken() else loggedOut">
 
   <h2> {{'User Details' | translate}}</h2>
 
@@ -9,6 +9,7 @@
       <th>{{'Title' | translate}}</th>
       <th>{{'Recipe' | translate}}</th>
       <th></th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -16,7 +17,7 @@
       <td class="hidden">{{recipe.id}}}</td>
       <td>{{recipe.title}}</td>
       <td>{{recipe.description}}</td>
-      <td>{{recipe.recipe_rating}}</td>
+
       <td>
         <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount" (click)="createRating(recipe.id)">
         </rating>

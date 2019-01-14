@@ -26,6 +26,7 @@ export class AddrecipesComponent implements OnInit {
   }
 
   createRecipe(): void {
+    this.recipe.averageRating = 1;
     this.userService.createRecipe(this.recipe)
       .subscribe(() => this.router.navigate(['recipes']));
   }

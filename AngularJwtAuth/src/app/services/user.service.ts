@@ -7,6 +7,7 @@ import {User} from '../auth/user';
 import {Like} from '../auth/like';
 import {Rating} from '../auth/rating';
 import {map} from 'rxjs/operators';
+import {Comment} from '../auth/comment';
 
 
 @Injectable({
@@ -63,13 +64,23 @@ export class UserService {
     return this.http.get<User>(this.Url + 'user/carrentuser/' + this.tokenStorage.getUser().id);
   }
 
-  public getLikesByIdComment(commentId) {
-    return this.http.get(this.Url + 'like/commentId/' + commentId);
+  public getLikeByCommentId(commentId) {
+    return this.http.get<Like>(this.Url + 'like/commentId/' + commentId)
+      .pipe(map(response => response[0]));
   }
 
+  public getLikesByUserIdAndCommentId(commentId) {
+    return this.http.get(this.Url + 'like/userId/commentId/' + this.tokenStorage.getUser().id + '/' + commentId)
+      .pipe(map(response => response[0]), pipe(map(u => u.click)));
+  }
   public getDeepRatingByReceptId(receptId) {
     return this.http.get<Rating>(this.Url + 'rating/ratingId/' + receptId)
       .pipe(map(response => response[0]), pipe(map(u => u.rating)));
+  }
+
+  public getAverageRatingByRecipeId(recipeId) {
+    return this.http.get<Rating>(this.Url + 'recipes/average/' + recipeId)
+      .pipe(map(response => response.averageRating));
   }
 
   public getRatingByReceptId(receptId) {
@@ -109,6 +120,12 @@ export class UserService {
   public updateRating(rating, recipeId) {
     return this.http.put(this.Url + 'rating/ratingUserId/' + this.tokenStorage.getUser().id + '/ratingRecipeId/' + recipeId, rating);
   }
+
+  public updateLike(like, commentId) {
+    return this.http.put(this.Url + 'like/user/' + this.tokenStorage.getUser().id + '/comment/' + commentId, like);
+  }
+
+
 
   public deleteRecipe(recipe) {
     return this.http.delete(this.recipesUrl + '/' + recipe.id);

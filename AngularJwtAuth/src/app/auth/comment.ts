@@ -1,4 +1,5 @@
 import {RecipesInfo} from './recipes';
+import {Like} from './like';
 
 
 export class Comment {
@@ -6,4 +7,5 @@ export class Comment {
   recipe: string;
   description: string;
   recipe_comment: number;
+  comment_like: Like;
 }
