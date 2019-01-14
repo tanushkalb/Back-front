@@ -31,8 +31,6 @@ public class CommentController {
         return commentRepository.findAllByRecipeId(id);
     }
 
-
-
     @GetMapping("*/comment")
     public List getComments() {
         return commentRepository.findAll();

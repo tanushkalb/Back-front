@@ -1,9 +1,6 @@
 package com.grokonez.jwtauthentication.controller;
 
-import com.grokonez.jwtauthentication.model.Comments;
-import com.grokonez.jwtauthentication.model.Likes;
-import com.grokonez.jwtauthentication.model.Recipes;
-import com.grokonez.jwtauthentication.model.User;
+import com.grokonez.jwtauthentication.model.*;
 import com.grokonez.jwtauthentication.repository.CommentRepository;
 import com.grokonez.jwtauthentication.repository.LikeRepository;
 import com.grokonez.jwtauthentication.repository.UserRepository;
@@ -32,15 +29,15 @@ public class LikeController {
 //        return likeRepository.findAll();
 //    }
 
-    @GetMapping("/commentId/{id}")
-    public List <Likes> getLikeById(@PathVariable("id") long id ){
+    @GetMapping("*/commentId/{id}")
+    public List <Likes> getLikeByCommentId(@PathVariable("id") long id ){
         return likeRepository.findAllByCommentId(id);
     }
 
-//    @PostMapping()
-//    public Likes writeLike(@RequestBody Likes likes) {
-//        return likeRepository.save(likes);
-//    }
+    @GetMapping("*/userId/commentId/{id}/{comId}")
+    public List<Likes> getLikeByUserIdAndCommentId(@PathVariable("id") long id, @PathVariable("comId") long comId){
+        return likeRepository.findByCommentIdAndUserId(comId, id);
+    }
 
     @PostMapping("*/user/{userId}/comment/{commentId}")
     public Likes createLike(@PathVariable("userId") long id, @PathVariable("commentId") long comId, @RequestBody Likes like) {
@@ -49,6 +46,13 @@ public class LikeController {
         like.setUser(persona);
         like.setComment(comment);
         return likeRepository.save(like);
+    }
+
+    @PutMapping("*/user/{userId}/comment/{commentId}")
+    public Likes updateRating(@PathVariable("userId") long id, @PathVariable("commentId") long comId, @RequestBody Likes likes) {
+       Likes updateLikes = likeRepository.findOneByCommentIdAndUserId(comId, id);
+        updateLikes.setClick(likes.getClick());
+        return likeRepository.save(updateLikes);
     }
 
 }

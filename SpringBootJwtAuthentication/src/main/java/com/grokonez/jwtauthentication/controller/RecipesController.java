@@ -1,10 +1,14 @@
 package com.grokonez.jwtauthentication.controller;
 
 
+import com.grokonez.jwtauthentication.model.Rating;
 import com.grokonez.jwtauthentication.model.Recipes;
 import com.grokonez.jwtauthentication.model.User;
+import com.grokonez.jwtauthentication.repository.RatingRepository;
 import com.grokonez.jwtauthentication.repository.RecipesRepository;
 import com.grokonez.jwtauthentication.repository.UserRepository;
+import com.grokonez.jwtauthentication.security.services.RatingService;
+import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,16 +19,31 @@ import java.util.Optional;
 @RestController("/recipes")
 public class RecipesController {
 
+
     @Autowired
     private RecipesRepository recipesRepository;
 
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private RatingRepository ratingRepository;
+
+    @Autowired
+    private RatingService ratingService;
+
     @GetMapping
     public List findAllRecipes() {
         return recipesRepository.findAll();
     }
+
+    @GetMapping("*/average/{recipeId}")
+    public Recipes getAverageRating(@PathVariable("recipeId") long id ) {
+        Recipes recipe = recipesRepository.findById(id).get();
+        recipe.setAverageRating(ratingService.calcAverageRating(recipe.getId()));
+        return recipesRepository.save(recipe);
+    }
+
 
     @GetMapping("*/{id}")
     public Optional<Recipes> findOne(@PathVariable("id") long id) {
@@ -37,6 +56,7 @@ public class RecipesController {
         recipes.setUser(persona);
         return recipesRepository.save(recipes);
     }
+
 
 //    @PostMapping("*/user/{userId}")
 //    public User postUserInfo(@PathVariable("userId") long id, @RequestBody User user) {

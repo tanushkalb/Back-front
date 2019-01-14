@@ -6,17 +6,13 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "likes", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "user_id", "comment_id"
-        })}
-)
+@Table(name = "likes")
 public class Likes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-//    private boolean isActive;
+    private long click;
 
     @JsonIgnore
     @ManyToOne()
@@ -27,6 +23,14 @@ public class Likes {
     @ManyToOne()
     @JoinColumn(name = "comment_id")
     private Comments comment;
+
+    public Likes(){
+
+    }
+
+    public Likes(long click){
+        this.click = click;
+    }
 
     public Long getId() {
         return id;
@@ -52,11 +56,11 @@ public class Likes {
         this.comment = comment;
     }
 
-//    public boolean isActive() {
-//        return isActive;
-//    }
-//
-//    public void setActive(boolean active) {
-//        isActive = active;
-//    }
+    public long getClick() {
+        return click;
+    }
+
+    public void setClick(long click) {
+        this.click = click;
+    }
 }

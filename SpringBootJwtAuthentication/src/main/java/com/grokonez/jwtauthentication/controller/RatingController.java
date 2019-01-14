@@ -4,6 +4,7 @@ import com.grokonez.jwtauthentication.model.*;
 import com.grokonez.jwtauthentication.repository.RatingRepository;
 import com.grokonez.jwtauthentication.repository.RecipesRepository;
 import com.grokonez.jwtauthentication.repository.UserRepository;
+import com.grokonez.jwtauthentication.security.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,13 +15,16 @@ import java.util.List;
 public class RatingController {
 
     @Autowired
-    RatingRepository ratingRepository;
+    private RatingRepository ratingRepository;
 
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private RecipesRepository recipesRepository;
+
+    @Autowired
+    private RatingService ratingService;
 
     @GetMapping("*/ratingId/{id}")
     public List<Rating> getRatingById(@PathVariable("id") long id ){
@@ -31,7 +35,6 @@ public class RatingController {
     public List<Rating> getRatingByUserId(@PathVariable("id") long id, @PathVariable("recId") long recId){
         return ratingRepository.findByRecipeIdAndUserId(recId, id);
     }
-
 
     @PostMapping("*/user/{userId}/recipe/{recipeId}")
     public Rating createRating(@PathVariable("userId") long id, @PathVariable("recipeId") long recId, @RequestBody Rating rating) {

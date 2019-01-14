@@ -16,6 +16,7 @@ public class Recipes {
     public Long id;
     private String title;
     private String description;
+    private double averageRating;
 
     @JsonIgnore
     @ManyToOne()
@@ -74,5 +75,13 @@ public class Recipes {
 
     public void setRating(Set<Rating> rating) {
         this.rating = rating;
+    }
+
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
     }
 }
