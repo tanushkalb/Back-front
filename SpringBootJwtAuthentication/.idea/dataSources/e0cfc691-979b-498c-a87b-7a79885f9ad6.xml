@@ -1190,62 +1190,61 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="284" name="is_active">
+    <column id="299" parent="284" name="comment_id">
       <Position>2</Position>
-      <DataType>bit(1)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="284" name="comment_id">
+    <column id="300" parent="284" name="user_id">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="284" name="user_id">
-      <Position>4</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="302" parent="284" name="UKsg7vao6v9l46c3nj31fbu4wu6">
+    <index id="301" parent="284" name="UKsg7vao6v9l46c3nj31fbu4wu6">
       <ColNames>user_id
 comment_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="303" parent="284" name="FKe4guax66lb963pf27kvm7ikik">
+    <index id="302" parent="284" name="FKe4guax66lb963pf27kvm7ikik">
       <ColNames>comment_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="304" parent="284" name="PRIMARY">
+    <key id="303" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="305" parent="284" name="UKsg7vao6v9l46c3nj31fbu4wu6">
+    <key id="304" parent="284" name="UKsg7vao6v9l46c3nj31fbu4wu6">
       <ColNames>user_id
 comment_id</ColNames>
       <UnderlyingIndexName>UKsg7vao6v9l46c3nj31fbu4wu6</UnderlyingIndexName>
     </key>
-    <column id="306" parent="285" name="id">
+    <column id="305" parent="285" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="285" name="rating">
+    <column id="306" parent="285" name="active">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="285" name="recipe_id">
+    <column id="307" parent="285" name="rating">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="285" name="user_id">
+    <column id="308" parent="285" name="recipe_id">
       <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="309" parent="285" name="user_id">
+      <Position>5</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>

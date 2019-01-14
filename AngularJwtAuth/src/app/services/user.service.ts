@@ -67,9 +67,19 @@ export class UserService {
     return this.http.get(this.Url + 'like/commentId/' + commentId);
   }
 
+  public getDeepRatingByReceptId(receptId) {
+    return this.http.get<Rating>(this.Url + 'rating/ratingId/' + receptId)
+      .pipe(map(response => response[0]), pipe(map(u => u.rating)));
+  }
+
   public getRatingByReceptId(receptId) {
     return this.http.get<Rating>(this.Url + 'rating/ratingId/' + receptId)
-      .pipe(map(response => response[1]), pipe(map(u => u.rating)));
+      .pipe(map(response => response[0]));
+  }
+
+  public getRatingByUserRecipeId(recipeId) {
+    return this.http.get<Rating>(this.Url + 'rating/rat/userId/' + this.tokenStorage.getUser().id + '/' + recipeId)
+      .pipe(map(response => response[0]));
   }
 
   public createRecipe(recipe) {
@@ -94,6 +104,10 @@ export class UserService {
 
   public updateUser(user) {
     return this.http.put(this.Url + 'user/carrentuser/' + this.tokenStorage.getUser().id, user);
+  }
+
+  public updateRating(rating, recipeId) {
+    return this.http.put(this.Url + 'rating/ratingUserId/' + this.tokenStorage.getUser().id + '/ratingRecipeId/' + recipeId, rating);
   }
 
   public deleteRecipe(recipe) {

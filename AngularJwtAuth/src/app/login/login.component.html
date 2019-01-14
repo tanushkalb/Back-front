@@ -18,7 +18,7 @@
       <td>{{recipe.description}}</td>
       <td>{{recipe.recipe_rating}}</td>
       <td>
-        <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount"    (click)="createRating(recipe.id)">
+        <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount" (click)="createRating(recipe.id)">
         </rating>
       </td>
       <td>

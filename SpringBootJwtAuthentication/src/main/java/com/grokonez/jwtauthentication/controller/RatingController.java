@@ -27,6 +27,12 @@ public class RatingController {
         return ratingRepository.findAllByRecipeId(id);
     }
 
+    @GetMapping("*/rat/userId/{id}/{recId}")
+    public List<Rating> getRatingByUserId(@PathVariable("id") long id, @PathVariable("recId") long recId){
+        return ratingRepository.findByRecipeIdAndUserId(recId, id);
+    }
+
+
     @PostMapping("*/user/{userId}/recipe/{recipeId}")
     public Rating createRating(@PathVariable("userId") long id, @PathVariable("recipeId") long recId, @RequestBody Rating rating) {
         User persona = userRepository.findById(id).get();
@@ -35,5 +41,14 @@ public class RatingController {
         rating.setRecipe(recipes);
         return ratingRepository.save(rating);
     }
+
+    @PutMapping("*/ratingUserId/{userId}/ratingRecipeId/{recipeId}")
+    public Rating updateRating(@PathVariable("userId") long id, @PathVariable("recipeId") long recId, @RequestBody Rating rating) {
+        Rating updateRating = ratingRepository.findOneByRecipeIdAndUserId(recId, id);
+        updateRating.setRating(rating.getRating());
+        updateRating.setActive(rating.getActive());
+        return ratingRepository.save(updateRating);
+    }
+
 
 }

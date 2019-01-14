@@ -1,4 +1,5 @@
 export class Rating {
-  id: number;
   rating: number;
+  active: number = 0;
+  id: number;
 }

@@ -6,12 +6,9 @@ import {AuthLoginInfo} from '../auth/login-info';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {RecipesInfo} from '../auth/recipes';
-import {Like} from '../auth/like';
 import {Rating} from '../auth/rating';
 import {HttpClient} from '@angular/common/http';
-import {pipe} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {forEach} from '@angular/router/src/utils/collection';
+
 
 @Component({
   selector: 'app-login',
@@ -20,7 +17,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 })
 export class LoginComponent implements OnInit {
   form: any = {};
-  data: any;
+
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -28,8 +25,9 @@ export class LoginComponent implements OnInit {
   starsCount: number;
   starsCount1: Rating[];
   rating: Rating = new Rating();
-  ratings: Rating[];
+  ratings: Rating;
   recipes: RecipesInfo[];
+  a: Rating;
   private loginInfo: AuthLoginInfo;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
@@ -48,9 +46,8 @@ export class LoginComponent implements OnInit {
           this.userService.getRatingByReceptId(rec.id).subscribe(data1 => rec.recipe_rating = data1);
         });
       });
-
-
-    // this.get().subscribe(data => console.log(data));
+    //this.userService.getDeepRatingByReceptId().subscribe()
+    // this.get().subscribe(data => console.log(data) );
   }
 
   onSubmit() {
@@ -87,22 +84,44 @@ export class LoginComponent implements OnInit {
   }
 
   createRating(recipeId): void {
-    let a: Rating;
-    this.userService.getRatingByReceptId(recipeId).subscribe(data => console.log(data));
-    if (a) {
-console.log(a);
-    } else {
+    this.userService.getRatingByUserRecipeId(recipeId).subscribe(data => this.save(data, recipeId));
+  }
+  // this.save(data, recipeId)
+ // console.log(data);
+  save(data, recipeId) {
+    if (data === undefined || data === null) {
       this.rating.rating = this.starsCount;
-      this.userService.createRating(this.rating.rating, recipeId).subscribe();
+      this.rating.active = 1;
+      this.userService.createRating(this.rating, recipeId).subscribe();
+    }  else {
+      this.rating.rating = this.starsCount;
+      this.userService.updateRating(this.rating, recipeId).subscribe();
+      console.log('s');
     }
   }
 
+  // this.userService.getRatingByReceptId(recipeId).subscribe(data => this.save(data, recipeId));
+  // save(savefile, recipeId) {
+  //   if (savefile === undefined) {
+  //     this.rating.rating = this.starsCount;
+  //     this.userService.createRating(this.rating.rating, recipeId).subscribe();
+  //     console.log('sasa');
+  //   } else {
+  //     this.rating.rating = this.starsCount;
+  //     console.log(this.rating.rating);
+  //     this.userService.updateRating(this.rating.rating, recipeId).subscribe();
+  //   }
+  // }
+  // get() {
+  //   return this.http.get('http://localhost:8080/rating/ratingId/1')
+  //     .pipe(map((data: any[]) => data.map((item: any) => new Rating(item.id, item.rating)  )));
+  // }
 
-  get() {
-    return this.http.get('http://localhost:8080/rating/ratingId/4')
-      .pipe(map(response => response[0]), pipe(map(u => u)))
-      ;
-  }
+
+  // get() {
+  //   return this.http.get<any[]>('http://localhost:8080/rating/ratingId/1', {observe: 'response', responseType: 'json'})
+  //     .pipe(map(responsive => responsive.body[0]));
+  // }
 
   reloadPage() {
     window.location.reload();

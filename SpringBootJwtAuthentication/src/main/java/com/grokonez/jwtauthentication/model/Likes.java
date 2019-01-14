@@ -16,7 +16,7 @@ public class Likes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    private boolean isActive;
+//    private boolean isActive;
 
     @JsonIgnore
     @ManyToOne()
@@ -52,11 +52,11 @@ public class Likes {
         this.comment = comment;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
+//    public boolean isActive() {
+//        return isActive;
+//    }
+//
+//    public void setActive(boolean active) {
+//        isActive = active;
+//    }
 }

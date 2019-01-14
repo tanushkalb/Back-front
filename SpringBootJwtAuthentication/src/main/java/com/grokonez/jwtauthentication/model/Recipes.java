@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Set;
 
+import static javax.persistence.CascadeType.REMOVE;
+
 @Entity
 @Table(name = "recipes")
 public class Recipes {
@@ -20,10 +22,10 @@ public class Recipes {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(cascade = REMOVE, mappedBy = "recipe")
     private Set<Rating> rating;
 
-    @OneToMany(mappedBy = "recipe")
+    @OneToMany(cascade = REMOVE, mappedBy = "recipe")
     private Set<Comments> comments;
 
     public Long getId() {

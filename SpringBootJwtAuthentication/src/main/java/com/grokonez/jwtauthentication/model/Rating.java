@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Set;
 
+import static java.lang.Long.valueOf;
+
 @Entity
 @Table(name = "ratings")
 public class Rating {
@@ -13,7 +15,10 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name="rating")
+
     private long rating;
+    private long active;
 
     @JsonIgnore
     @ManyToOne()
@@ -30,8 +35,9 @@ public class Rating {
 
     }
 
-    public Rating(long rating){
+    public Rating(long rating, long active){
         this.rating = rating;
+        this.active = active;
     }
 
     public long getRating() {
@@ -64,5 +70,13 @@ public class Rating {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public long getActive() {
+        return active;
+    }
+
+    public void setActive(long active) {
+        this.active = active;
     }
 }

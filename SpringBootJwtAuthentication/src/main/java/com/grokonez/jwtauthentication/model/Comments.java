@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+import static javax.persistence.CascadeType.REMOVE;
+
 @Entity
 @Table(name = "comments")
 public class Comments {
@@ -21,7 +23,7 @@ public class Comments {
     private User user;
 
 
-    @OneToMany(mappedBy = "comment")
+    @OneToMany(cascade = REMOVE, mappedBy = "comment")
     private Set<Likes> likes;
 
     @JsonIgnore

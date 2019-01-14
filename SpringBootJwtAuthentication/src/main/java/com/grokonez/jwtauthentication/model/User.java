@@ -12,6 +12,8 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.NaturalId;
 
+import static javax.persistence.CascadeType.REMOVE;
+
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
@@ -57,18 +59,18 @@ public class User{
 
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Comments> comments;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Recipes> recipes;
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Rating> ratings;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Likes> likes;
 
 
