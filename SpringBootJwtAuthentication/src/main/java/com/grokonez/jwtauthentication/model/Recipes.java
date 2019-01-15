@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import static javax.persistence.CascadeType.REMOVE;
@@ -19,6 +20,18 @@ public class Recipes {
     private String description;
     private double averageRating;
     private Date date;
+
+
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "recipe_ingredients",
+            joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
+    private Set<Ingredients> ingredients = new HashSet<>();
 
     @JsonIgnore
     @ManyToOne()
@@ -93,5 +106,13 @@ public class Recipes {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Set<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredients> ingredients) {
+        this.ingredients = ingredients;
     }
 }

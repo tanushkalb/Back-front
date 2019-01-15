@@ -65,6 +65,7 @@ public class RecipesController {
         User persona = userRepository.findById(id).get();
         recipes.setUser(persona);
         recipes.setDate(new Date());
+        recipes.setIngredients(recipes.getIngredients());
         return recipesRepository.save(recipes);
     }
 

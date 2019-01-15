@@ -1,4 +1,5 @@
 import {Rating} from './rating';
+import {IngredientInfo} from './ingredientInfo';
 
 export class RecipesInfo {
   id: string;
@@ -6,4 +7,5 @@ export class RecipesInfo {
   description: string;
   recipe_rating: number;
   averageRating: number;
+  ingredients: IngredientInfo[] = [];
 }

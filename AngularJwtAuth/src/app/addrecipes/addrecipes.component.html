@@ -3,7 +3,7 @@
   <form #f="ngForm">
     <div class="form-group">
       <label for="email">{{'Title' | translate}}</label>
-      <input type="email"  [(ngModel)]="recipe.title" placeholder="{{'Title' | translate}}" name="email" class="form-control"
+      <input type="title"  [(ngModel)]="recipe.title" placeholder="{{'Title' | translate}}" name="title" class="form-control"
              #username="ngModel" required id="email">
       <div *ngIf="f.submitted && username.invalid">
         <div *ngIf="username.errors.required">{{'Username is required' | translate}}</div>
@@ -12,9 +12,29 @@
 
     <div class="form-group">
       <label for="firstName">{{'Description' | translate}}</label>
-      <input [(ngModel)]="recipe.description" placeholder="{{'Description' | translate}}" name="firstName" class="form-control" id="firstName">
+      <input [(ngModel)]="recipe.description" placeholder="{{'Description' | translate}}" name="Description" class="form-control" id="firstName">
     </div>
-    <i class="material-icons">visibility</i>
+
+
+    <div class="form-group">
+      <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let ingredient of recipe.ingredients" [selectable]="selectable"
+                    [removable]="removable" (removed)="remove(ingredient)">
+            {{ingredient.name}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="New fruit..."
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)"
+          >
+        </mat-chip-list>
+      </mat-form-field>
+    </div>
+
+
     <button class="btn btn-success" (click)="createRecipe()">{{'Create' | translate}}</button>
     <a href="/recipes" class="btn btn-success">{{'Back' | translate}}</a>
   </form>
