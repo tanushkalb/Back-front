@@ -18,10 +18,15 @@ public class RatingServiceImpl implements RatingService {
     public double calcAverageRating(long ratingId) {
         List<Rating> allRatings=ratingRepository.findAllByRecipeId(ratingId);
         double sum=0;
+        double average = 0;
         for(Rating rt: allRatings) {
             sum+=rt.getRating();
         }
-        double average=sum/( allRatings.size() );
+
+
+        if (sum != 0) {
+            average=sum/( allRatings.size() );
+        }
         return average;
     }
 }

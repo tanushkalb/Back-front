@@ -40,6 +40,8 @@ export class UserService {
     return this.http.get<RecipesInfo[]>(this.recipesUrl);
   }
 
+
+
   public getRecipesById(id) {
     return this.http.get<RecipesInfo[]>(this.recipesUrl + '/' + id);
   }
@@ -49,7 +51,7 @@ export class UserService {
   }
 
   public getCommentById(id) {
-    return this.http.get<Comment[]>(this.Url + 'comment/comment' + id);
+    return this.http.get<Comment>(this.Url + 'comment/comment' + id);
   }
 
   public getComment() {
@@ -69,10 +71,21 @@ export class UserService {
       .pipe(map(response => response[0]));
   }
 
+  public getCountLikeByCommentId(commentId) {
+    return this.http.get<Like>(this.Url + 'comment/count/' + commentId)
+      .pipe(map(response => response.likeCount));
+  }
+
+
   public getLikesByUserIdAndCommentId(commentId) {
     return this.http.get(this.Url + 'like/userId/commentId/' + this.tokenStorage.getUser().id + '/' + commentId)
       .pipe(map(response => response[0]), pipe(map(u => u.click)));
   }
+  public getLikesByUserIdAndComment(commentId) {
+    return this.http.get(this.Url + 'like/userId/commentId/' + this.tokenStorage.getUser().id + '/' + commentId)
+      .pipe(map(response => response[0]));
+  }
+
   public getDeepRatingByReceptId(receptId) {
     return this.http.get<Rating>(this.Url + 'rating/ratingId/' + receptId)
       .pipe(map(response => response[0]), pipe(map(u => u.rating)));
@@ -86,6 +99,14 @@ export class UserService {
   public getRatingByReceptId(receptId) {
     return this.http.get<Rating>(this.Url + 'rating/ratingId/' + receptId)
       .pipe(map(response => response[0]));
+  }
+
+  public getRecipesOrderAverageRating() {
+    return this.http.get<RecipesInfo[]>(this.recipesUrl + '/orderBy/rating');
+  }
+
+  public getRecipesOrderByDate() {
+    return this.http.get<RecipesInfo[]>(this.recipesUrl + '/orderBy/data');
   }
 
   public getRatingByUserRecipeId(recipeId) {

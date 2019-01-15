@@ -15,7 +15,8 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     private String description;
-    private Date date_publish;
+//    private Date date_publish_comment;
+    private long likeCount;
 
     @JsonIgnore
     @ManyToOne()
@@ -66,14 +67,13 @@ public class Comments {
         this.description = description;
     }
 
-
-    public Date getDate_publish() {
-        return date_publish;
-    }
-
-    public void setDate_publish(Date date_publish) {
-        this.date_publish = date_publish;
-    }
+//    public Date getDate_publish_comment() {
+//        return date_publish_comment;
+//    }
+//
+//    public void setDate_publish_comment(Date date_publish_comment) {
+//        this.date_publish_comment = date_publish_comment;
+//    }
 
     public Set<Likes> getLikes() {
         return likes;
@@ -81,5 +81,13 @@ public class Comments {
 
     public void setLikes(Set<Likes> likes) {
         this.likes = likes;
+    }
+
+    public long getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(long likeCount) {
+        this.likeCount = likeCount;
     }
 }

@@ -3,6 +3,9 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0" routerLinkActive="active">
         <li class="nav-item"><a class="nav-link" routerLink="home">{{'Home' | translate}}</a></li>
+        <li *ngIf="tokenStorage.getToken()" class="nav-item">
+          <a class="nav-link" routerLink="auth/login">{{'Main' | translate}}</a>
+        </li>
         <li *ngIf="authority === 'user'" class="nav-item">
           <a class="nav-link" routerLink="user" translate>User Board</a>
         </li>
@@ -22,7 +25,7 @@
           <a class="nav-link" routerLink="recipes">{{'Your recipes' | translate}}</a>
         </li>
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
-          <a class="nav-link" routerLink="auth/login">{{'All recipes' | translate}}</a>
+          <a class="nav-link" routerLink="allrecipes">{{'All recipes' | translate}}</a>
         </li>
       </ul>
 

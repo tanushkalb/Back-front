@@ -12,6 +12,7 @@ import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,6 +45,15 @@ public class RecipesController {
         return recipesRepository.save(recipe);
     }
 
+    @GetMapping("*/orderBy/rating")
+    public List<Recipes> getOrderRating(){
+        return recipesRepository.findAllByOrderByAverageRatingDesc();
+    }
+
+    @GetMapping("*/orderBy/data")
+    public List<Recipes> getOrderData(){
+        return recipesRepository.findAllByOrderByDateDesc();
+    }
 
     @GetMapping("*/{id}")
     public Optional<Recipes> findOne(@PathVariable("id") long id) {
@@ -54,6 +64,7 @@ public class RecipesController {
     public Recipes createRecipe(@PathVariable("userId") long id, @RequestBody Recipes recipes) {
         User persona = userRepository.findById(id).get();
         recipes.setUser(persona);
+        recipes.setDate(new Date());
         return recipesRepository.save(recipes);
     }
 

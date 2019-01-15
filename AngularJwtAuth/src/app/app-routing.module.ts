@@ -11,6 +11,7 @@ import {RecipesComponent} from './recipes/recipes.component';
 import {AddrecipesComponent} from './addrecipes/addrecipes.component';
 import {RecipeinfoComponent} from './recipeinfo/recipeinfo.component';
 import {EditRecipeComponent} from './edit-recipe/edit-recipe.component';
+import {AllrecipesComponent} from './allrecipes/allrecipes.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
   {
     path: 'edit-recipe',
     component: EditRecipeComponent
+  },
+  {
+    path: 'allrecipes',
+    component: AllrecipesComponent
   }
 ];
 

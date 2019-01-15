@@ -14,6 +14,8 @@ public class Likes {
 
     private long click;
 
+
+
     @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "user_id")

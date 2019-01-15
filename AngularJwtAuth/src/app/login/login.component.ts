@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   starsCount: number;
   rating: Rating = new Rating();
   recipes: RecipesInfo[];
+  recipesByDate: RecipesInfo[];
   private loginInfo: AuthLoginInfo;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
@@ -36,7 +37,8 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
     }
-    this.return();
+    this.getOrder();
+    this.getOrderByDate();
   }
 
   onSubmit() {
@@ -79,9 +81,9 @@ export class LoginComponent implements OnInit {
       this.rating.rating = this.starsCount;
       this.rating.active = 1;
       this.userService.createRating(this.rating, recipeId).subscribe();
+      console.log('a');
       this.return();
     }  else {
-
       this.rating.rating = this.starsCount;
       this.userService.updateRating(this.rating, recipeId).subscribe();
       this.return();
@@ -94,6 +96,26 @@ export class LoginComponent implements OnInit {
       .subscribe(data1 => {
         this.recipes = data1;
         this.recipes.forEach((rec) => {
+          this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
+        });
+      });
+  }
+
+  getOrder(): void {
+    this.userService.getRecipesOrderAverageRating()
+      .subscribe(data1 => {
+        this.recipes = data1;
+        this.recipes.forEach((rec) => {
+          this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
+        });
+      });
+  }
+
+  getOrderByDate(): void {
+    this.userService.getRecipesOrderByDate()
+      .subscribe(data1 => {
+        this.recipesByDate = data1;
+        this.recipesByDate.forEach((rec) => {
           this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
         });
       });

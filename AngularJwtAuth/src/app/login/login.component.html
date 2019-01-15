@@ -1,6 +1,6 @@
 <div class="semiopacity" *ngIf="tokenStorage.getToken() else loggedOut">
 
-  <h2> {{'User Details' | translate}}</h2>
+  <h2> {{'The most popular' | translate}}</h2>
 
   <table class="table table-striped">
     <thead>
@@ -14,6 +14,37 @@
     </thead>
     <tbody>
     <tr *ngFor="let recipe of recipes">
+      <td class="hidden">{{recipe.id}}}</td>
+      <td>{{recipe.title}}</td>
+      <td>{{recipe.description}}</td>
+
+      <td>
+        <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount" (click)="createRating(recipe.id)">
+        </rating>
+      </td>
+      <td>
+        <button class="btn btn-success" (click)="goToCheck(recipe)"
+                style="margin-left: 20px;"> {{'CHECK' | translate}}</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h2> {{'The last created' | translate}}</h2>
+
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>{{'Title' | translate}}</th>
+      <th>{{'Recipe' | translate}}</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let recipe of recipesByDate">
       <td class="hidden">{{recipe.id}}}</td>
       <td>{{recipe.title}}</td>
       <td>{{recipe.description}}</td>

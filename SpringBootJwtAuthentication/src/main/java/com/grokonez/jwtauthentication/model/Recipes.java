@@ -3,6 +3,7 @@ package com.grokonez.jwtauthentication.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 import static javax.persistence.CascadeType.REMOVE;
@@ -17,6 +18,7 @@ public class Recipes {
     private String title;
     private String description;
     private double averageRating;
+    private Date date;
 
     @JsonIgnore
     @ManyToOne()
@@ -83,5 +85,13 @@ public class Recipes {
 
     public void setAverageRating(double averageRating) {
         this.averageRating = averageRating;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

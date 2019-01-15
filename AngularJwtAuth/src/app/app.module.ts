@@ -22,6 +22,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {RatingModule} from 'ngx-rating';
+import { AllrecipesComponent } from './allrecipes/allrecipes.component';
 
 
 
@@ -38,7 +39,8 @@ import {RatingModule} from 'ngx-rating';
     RecipesComponent,
     AddrecipesComponent,
     RecipeinfoComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    AllrecipesComponent
   ],
   imports: [
     BrowserModule,
