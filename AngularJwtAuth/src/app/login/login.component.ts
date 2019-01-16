@@ -80,13 +80,13 @@ export class LoginComponent implements OnInit {
     if (data === undefined || data === null) {
       this.rating.rating = this.starsCount;
       this.rating.active = 1;
-      this.userService.createRating(this.rating, recipeId).subscribe();
+      this.userService.createRating(this.rating, recipeId).subscribe(() => { this.getOrder(); this.getOrderByDate()});
       console.log('a');
-      this.return();
+      //this.return();
     }  else {
       this.rating.rating = this.starsCount;
-      this.userService.updateRating(this.rating, recipeId).subscribe();
-      this.return();
+      this.userService.updateRating(this.rating, recipeId).subscribe(() => { this.getOrder(); this.getOrderByDate()});
+      //this.return();
       console.log('s');
     }
   }

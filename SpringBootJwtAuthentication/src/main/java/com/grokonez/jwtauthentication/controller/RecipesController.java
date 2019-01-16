@@ -8,6 +8,7 @@ import com.grokonez.jwtauthentication.repository.RatingRepository;
 import com.grokonez.jwtauthentication.repository.RecipesRepository;
 import com.grokonez.jwtauthentication.repository.UserRepository;
 import com.grokonez.jwtauthentication.security.services.RatingService;
+import com.grokonez.jwtauthentication.security.services.RecipeService;
 import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,10 @@ public class RecipesController {
     @Autowired
     private RatingService ratingService;
 
-    @GetMapping
+    @Autowired
+    private RecipeService recipeService;
+
+    @GetMapping("*")
     public List findAllRecipes() {
         return recipesRepository.findAll();
     }
@@ -41,7 +45,7 @@ public class RecipesController {
     @GetMapping("*/average/{recipeId}")
     public Recipes getAverageRating(@PathVariable("recipeId") long id ) {
         Recipes recipe = recipesRepository.findById(id).get();
-        recipe.setAverageRating(ratingService.calcAverageRating(recipe.getId()));
+        //recipe.setAverageRating(ratingService.calcAverageRating(recipe.getId()));
         return recipesRepository.save(recipe);
     }
 
@@ -66,7 +70,7 @@ public class RecipesController {
         recipes.setUser(persona);
         recipes.setDate(new Date());
         recipes.setIngredients(recipes.getIngredients());
-        return recipesRepository.save(recipes);
+        return recipeService.save(recipes);
     }
 
 

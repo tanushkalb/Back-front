@@ -2,7 +2,6 @@ package com.grokonez.jwtauthentication.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.Set;

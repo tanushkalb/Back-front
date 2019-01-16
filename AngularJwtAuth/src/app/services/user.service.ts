@@ -8,6 +8,7 @@ import {Like} from '../auth/like';
 import {Rating} from '../auth/rating';
 import {map} from 'rxjs/operators';
 import {Comment} from '../auth/comment';
+import {IngredientInfo} from '../auth/ingredientInfo';
 
 
 @Injectable({
@@ -37,7 +38,7 @@ export class UserService {
   }
 
   public getRecipes() {
-    return this.http.get<RecipesInfo[]>(this.recipesUrl);
+    return this.http.get<RecipesInfo[]>(this.recipesUrl );
   }
 
 
@@ -108,6 +109,14 @@ export class UserService {
   public getRecipesOrderByDate() {
     return this.http.get<RecipesInfo[]>(this.recipesUrl + '/orderBy/data');
   }
+  public getIngredients() {
+    return this.http.get<IngredientInfo[]>(this.Url + 'ingredient/all');
+  }
+
+  public getDeepRecipes() {
+    return this.http.get<RecipesInfo[]>(this.recipesUrl)
+      .pipe(map(response => response));
+  }
 
   public getRatingByUserRecipeId(recipeId) {
     return this.http.get<Rating>(this.Url + 'rating/rat/userId/' + this.tokenStorage.getUser().id + '/' + recipeId)
@@ -117,6 +126,10 @@ export class UserService {
   public createRecipe(recipe) {
     return this.http.post<RecipesInfo>(this.recipesUrl + '/' + this.tokenStorage.getUser().id, recipe);
   }
+  // public createRecipe(recipe) {
+  //   return this.http.post<RecipesInfo>(this.Url + 'filrecipe/fil/' + this.tokenStorage.getUser().id, recipe);
+  // }
+
 
   public createComment(comment, recipeId) {
     return this.http.post<Comment>(this.Url + 'comment/Comment/' + this.tokenStorage.getUser().id + '/Recipe/' + recipeId, comment);
@@ -145,8 +158,6 @@ export class UserService {
   public updateLike(like, commentId) {
     return this.http.put(this.Url + 'like/user/' + this.tokenStorage.getUser().id + '/comment/' + commentId, like);
   }
-
-
 
   public deleteRecipe(recipe) {
     return this.http.delete(this.recipesUrl + '/' + recipe.id);

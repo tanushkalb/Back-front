@@ -23,6 +23,5 @@ public class LikeServiceImpl implements LikeService {
             sum+=rt.getClick();
         }
         return sum;
-
     }
 }

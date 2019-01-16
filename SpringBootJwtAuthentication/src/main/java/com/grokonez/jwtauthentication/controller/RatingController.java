@@ -42,7 +42,10 @@ public class RatingController {
         Recipes recipes = recipesRepository.findById(recId).get();
         rating.setUser(persona);
         rating.setRecipe(recipes);
-        return ratingRepository.save(rating);
+        // rating.getRecipe().setAverageRating(ratingService.calcAverageRating(rating.getRecipe().getId()));
+        rating = ratingRepository.save(rating);
+
+        return updateRating(id, recId, rating);
     }
 
     @PutMapping("*/ratingUserId/{userId}/ratingRecipeId/{recipeId}")
@@ -50,6 +53,7 @@ public class RatingController {
         Rating updateRating = ratingRepository.findOneByRecipeIdAndUserId(recId, id);
         updateRating.setRating(rating.getRating());
         updateRating.setActive(rating.getActive());
+        updateRating.getRecipe().setAverageRating(ratingService.calcAverageRating(updateRating.getRecipe().getId()));
         return ratingRepository.save(updateRating);
     }
 

@@ -24,7 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {RatingModule} from 'ngx-rating';
 import {AllrecipesComponent} from './allrecipes/allrecipes.component';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatFormFieldModule} from '@angular/material';
+import {MatAutocompleteModule, MatFormFieldModule} from '@angular/material';
 
 
 
@@ -53,6 +53,7 @@ import {MatFormFieldModule} from '@angular/material';
     RatingModule,
     MatChipsModule,
     MatFormFieldModule,
+    MatAutocompleteModule,
     // Put ionic2-rating module here
     TranslateModule.forRoot({
       loader: {

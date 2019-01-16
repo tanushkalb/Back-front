@@ -3,7 +3,7 @@ import {RecipesInfo} from '../auth/recipes';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {AuthService} from '../auth/auth.service';
-import {MatChipInputEvent} from '@angular/material';
+import {MatAutocompleteSelectedEvent, MatChipInputEvent} from '@angular/material';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {IngredientInfo} from '../auth/ingredientInfo';
 
@@ -21,12 +21,13 @@ export interface Fruit {
 
 export class AddrecipesComponent implements OnInit {
 
-  recipes: RecipesInfo[]
+  recipes: RecipesInfo[];
   recipe: RecipesInfo = new RecipesInfo();
-  visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
+  i: IngredientInfo[];
+  all: Array<string> = [];
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   fruits: Fruit[] = []
@@ -34,21 +35,33 @@ export class AddrecipesComponent implements OnInit {
 
   constructor(private router: Router, private userService: UserService, public authService: AuthService) {
   }
+
   ngOnInit() {
-    this.userService.getRecipes()
+    this.userService.getDeepRecipes()
       .subscribe(data => {
         this.recipes = data;
+        this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
+          this.all = ingredients.map(ingredient => ingredient.name);
+        });
       });
   }
 
+  parsing(recipe) {
+    this.all.push(recipe);
+
+    // for (let i = 0; i < recipe.length; i++) {
+    //   // for (let j in recipe[i]) {
+    //   //   console.log(recipe[i][j]);
+    //   // }
+    //   console.log(recipe[i]);
+  }
+
+
   createRecipe(): void {
-    this.recipe.averageRating = 1;
+    this.recipe.averageRating = 0;
     this.userService.createRecipe(this.recipe)
       .subscribe(() => this.router.navigate(['recipes']));
   }
-
-  
-
 
 
   add(event: MatChipInputEvent): void {
@@ -73,7 +86,7 @@ export class AddrecipesComponent implements OnInit {
     }
   }
 
-
-
-
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.recipe.ingredients.push({name: event.option.viewValue});
+  }
 }

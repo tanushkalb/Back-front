@@ -24,6 +24,7 @@ export class AllrecipesComponent implements OnInit {
 
   ngOnInit() {
     this.return();
+    //this.userService.getRecipes().subscribe(data => this.recipes = data);
   }
 
   goToCheck(recipe: RecipesInfo): void {
@@ -40,16 +41,23 @@ export class AllrecipesComponent implements OnInit {
     if (data === undefined || data === null) {
       this.rating.rating = this.starsCount;
       this.rating.active = 1;
-      this.userService.createRating(this.rating, recipeId).subscribe();
-      console.log('aa');
-      this.return();
-    }  else {
+      this.userService.createRating(this.rating, recipeId).subscribe(() => this.return());
 
+    }  else {
       this.rating.rating = this.starsCount;
-      this.userService.updateRating(this.rating, recipeId).subscribe();
-      this.return();
+      this.userService.updateRating(this.rating, recipeId).subscribe(() => this.return());
       console.log('s');
     }
+  }
+
+  getOrder(): void {
+    this.userService.getRecipesOrderAverageRating()
+      .subscribe(data1 => {
+        this.recipes = data1;
+        this.recipes.forEach((rec) => {
+          this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
+        });
+      });
   }
 
   return(): void {
@@ -61,5 +69,7 @@ export class AllrecipesComponent implements OnInit {
         });
       });
   }
+
+
 
 }
