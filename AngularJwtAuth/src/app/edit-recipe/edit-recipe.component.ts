@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class EditRecipeComponent implements OnInit {
 
-  recipe: RecipesInfo[] = [];
+  recipe: RecipesInfo;
   userId = window.localStorage.getItem('editRecipeId');
 
   constructor(private userService: UserService, private router: Router) { }
@@ -19,7 +19,6 @@ export class EditRecipeComponent implements OnInit {
     this.userService.getRecipesById(this.userId)
       .subscribe(data => {
         this.recipe = data;
-        console.log(this.recipe);
       });
   }
 

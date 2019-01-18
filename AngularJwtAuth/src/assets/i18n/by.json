@@ -22,7 +22,7 @@
     "Password is required": "Пароль абавязковы",
     "Password must be at least 6 characters": "Пароль павінен быць больш за 6 сімвалаў",
     "Register": "Зарэгістравацца",
-    "SignUp failed!": "Памылка рэгістрацыі",
+    "SignUp failed!": "Памылка рэгістрацыі:",
     "New recipe": "Новы рэцэпт",
     "Description": "Апісанне рэцэпту",
     "Create": "Стварыць",
@@ -31,7 +31,24 @@
     "Don't have an account?": "У вас усё яшчэ няма акаўнта?",
     "Sign Up": "Зарэгістравацца",
     "Comment": "Напісаць каментар",
-    "CommentButton": "Адправіць"
+    "CommentButton": "Адправіць",
+    "Main": "Галоўная",
+    "The most popular": "Самыя папулярныя",
+    "The last created": "Апошнія апублікаваныя",
+    "vegetable": "агароднінная",
+    "sweet": "Салодкая",
+    "theme": "Тэма",
+    "New ingredient": "Новы інгрэдыент",
+    "Clear": "Ачысціць",
+    "Dropdown link": "Тэма",
+  "Ingredient": "Інгрэдыент",
+  "Tags": "Тэгі",
+  "Rating": "Рэйтынг",
+  "Login failed": "Памылка ўваходу:",
+  "errorMessageLogin": "Няправільнае імя карыстальніка або пароль",
+  "Fail -> Username is already taken!": "Імя карыстальніка ўжо занята",
+  "Fail -> Email is already in use!": "Email з такой назвай ужо існуе",
+  "Name must be at least 3 characters": "Імя павінна змяшчаць не менш за 3 сімвалаў",
+  "Username must be at least 3 characters": "Імя карыстальніка павінна быць не менш за 3-х знакаў"
 
-    
 }

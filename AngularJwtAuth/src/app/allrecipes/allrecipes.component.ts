@@ -6,6 +6,7 @@ import {TokenStorageService} from '../auth/token-storage.service';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {HttpClient} from '@angular/common/http';
+import {IngredientInfo} from '../auth/ingredientInfo';
 
 @Component({
   selector: 'app-allrecipes',
@@ -17,13 +18,17 @@ export class AllrecipesComponent implements OnInit {
   starsCount: number;
   rating: Rating = new Rating();
   recipes: RecipesInfo[];
-
+  all: IngredientInfo[] = [];
+  selectedIngredient: IngredientInfo;
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
               private router: Router, private userService: UserService, private http: HttpClient) {
   }
 
   ngOnInit() {
     this.return();
+    this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
+      this.all = ingredients.map(ingredient => ingredient);
+    });
     //this.userService.getRecipes().subscribe(data => this.recipes = data);
   }
 
@@ -49,27 +54,34 @@ export class AllrecipesComponent implements OnInit {
       console.log('s');
     }
   }
-
-  getOrder(): void {
-    this.userService.getRecipesOrderAverageRating()
-      .subscribe(data1 => {
-        this.recipes = data1;
+  getSearchRecipes(Ingredient): void {
+    this.selectedIngredient = Ingredient;
+    this.userService.getRecipesByIngredient(Ingredient)
+      .subscribe( data => {
+        this.recipes = data;
         this.recipes.forEach((rec) => {
           this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
-        });
+        })
       });
   }
-
   return(): void {
-    this.userService.getRecipes()
-      .subscribe(data1 => {
-        this.recipes = data1;
-        this.recipes.forEach((rec) => {
-          this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
-        });
-      });
+    if(this.selectedIngredient) {
+      this.getSearchRecipes(this.selectedIngredient);
+    }
+    else {
+      this.getAll();
+    }
   }
 
-
+getAll(): void {
+    this.selectedIngredient = null;
+  this.userService.getRecipes()
+    .subscribe(data1 => {
+      this.recipes = data1;
+      this.recipes.forEach((rec) => {
+        this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
+      });
+    });
+}
 
 }

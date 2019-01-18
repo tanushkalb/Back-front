@@ -1,23 +1,23 @@
 <div class="semiopacity" *ngIf="tokenStorage.getToken() else loggedOut">
-
+  <br>
+  <mat-chip-list >
+    <h2>{{'Tags' | translate}}:</h2>
+    <mat-chip color="warn" selected *ngFor="let ingredient of all" [value]="ingredient">{{ingredient}}
+    </mat-chip>
+  </mat-chip-list>
   <h2> {{'The most popular' | translate}}</h2>
 
   <table class="table table-striped">
     <thead>
     <tr>
-      <th class="hidden">Id</th>
       <th>{{'Title' | translate}}</th>
-      <th>{{'Recipe' | translate}}</th>
-      <th></th>
+      <th>{{'Rating' | translate}}</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let recipe of recipes">
-      <td class="hidden">{{recipe.id}}}</td>
+    <tr *ngFor="let recipe of (recipes | slice:-5) " >
       <td>{{recipe.title}}</td>
-      <td>{{recipe.description}}</td>
-
       <td>
         <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount" (click)="createRating(recipe.id)">
         </rating>
@@ -36,18 +36,15 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th class="hidden">Id</th>
+
       <th>{{'Title' | translate}}</th>
-      <th>{{'Recipe' | translate}}</th>
-      <th></th>
+      <th>{{'Rating' | translate}}</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let recipe of recipesByDate">
-      <td class="hidden">{{recipe.id}}}</td>
+    <tr *ngFor="let recipe of (recipesByDate | slice:-5)">
       <td>{{recipe.title}}</td>
-      <td>{{recipe.description}}</td>
 
       <td>
         <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount" (click)="createRating(recipe.id)">
@@ -86,7 +83,7 @@
       <div class="form-group">
         <button class="btn btn-primary">{{'Login' | translate}}</button>
         <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
-          Login failed: {{errorMessage}}
+          {{'Login failed' | translate}} {{'errorMessageLogin' | translate}}
         </div>
       </div>
     </form>
@@ -95,3 +92,4 @@
     <a href="signup" class="btn btn-success">{{'Sign Up' | translate}}</a>
   </div>
 </ng-template>
+<br>

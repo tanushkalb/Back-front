@@ -1,30 +1,40 @@
+<br>
+<!--<mat-card><h2 class="text-center">{{'New recipe' | translate}}</h2></mat-card>-->
 
-  <h2 class="text-center">{{'New recipe' | translate}}</h2>
+
   <form #f="ngForm">
     <div class="form-group">
-      <label for="email">{{'Title' | translate}}</label>
+      <mat-card>
+        <label for="email"><h3 class="text-center">{{'Title' | translate}}</h3></label>
       <input type="title"  [(ngModel)]="recipe.title" placeholder="{{'Title' | translate}}" name="title" class="form-control"
              #username="ngModel" required id="email">
       <div *ngIf="f.submitted && username.invalid">
         <div *ngIf="username.errors.required">{{'Username is required' | translate}}</div>
       </div>
+        </mat-card>
     </div>
+<div>
+  <mat-card>
+    <h3 class="first">{{'Description' | translate}}</h3>
+    <p-editor [(ngModel)]="recipe.description" name="recipe.description" [style]="{'height':'320px'}"></p-editor>
+    <br>
+    <button class="btn btn-success" pButton  icon="pi pi-times" mat-icon-button="clear"  type="button" label="{{'Clear' | translate}}" (click)="recipe.description=null"></button>
+  </mat-card>
+</div>
+
+    <br>
 
     <div class="form-group">
-      <label for="firstName">{{'Description' | translate}}</label>
-      <input [(ngModel)]="recipe.description" placeholder="{{'Description' | translate}}" name="Description" class="form-control" id="firstName">
-    </div>
-
-
-    <div class="form-group">
+      <mat-card class="example">
+        <h4>{{'Ingredient' | translate}}</h4>
       <mat-form-field class="example-chip-list">
-        <mat-chip-list #chipList>
-          <mat-chip *ngFor="let ingredient of recipe.ingredients" [selectable]="selectable"
+        <mat-chip-list  #chipList>
+          <mat-chip  *ngFor="let ingredient of recipe.ingredients" [selectable]="selectable"
                     [removable]="removable" (removed)="remove(ingredient)">
             {{ingredient.name}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
           </mat-chip>
-          <input placeholder="New fruit..."
+          <input placeholder="{{'New ingredient' | translate}}"
 
                  [matAutocomplete]="auto"
                  [matChipInputFor]="chipList"
@@ -39,9 +49,15 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
+      </mat-card>
     </div>
 
 
     <button class="btn btn-success" (click)="createRecipe()">{{'Create' | translate}}</button>
     <a href="/recipes" class="btn btn-success">{{'Back' | translate}}</a>
   </form>
+  <br>
+  <br>
+  <br>
+  <br>
+

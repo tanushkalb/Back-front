@@ -8,6 +8,7 @@ import {UserService} from '../services/user.service';
 import {RecipesInfo} from '../auth/recipes';
 import {Rating} from '../auth/rating';
 import {HttpClient} from '@angular/common/http';
+import {IngredientInfo} from '../auth/ingredientInfo';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   rating: Rating = new Rating();
   recipes: RecipesInfo[];
   recipesByDate: RecipesInfo[];
+  all: Array<string> = [];
   private loginInfo: AuthLoginInfo;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
@@ -33,6 +35,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+        this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
+          this.all = ingredients.map(ingredient => ingredient.name);
+      });
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();

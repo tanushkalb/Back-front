@@ -1,6 +1,7 @@
 package com.grokonez.jwtauthentication.repository;
 
 
+import com.grokonez.jwtauthentication.model.Ingredients;
 import com.grokonez.jwtauthentication.model.Recipes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.Repository;
@@ -11,4 +12,5 @@ public interface RecipesRepository extends JpaRepository<Recipes, Long>, Reposit
     List<Recipes> findAllByUserId(long id);
     List<Recipes> findAllByOrderByAverageRatingDesc();
     List<Recipes> findAllByOrderByDateDesc();
+    List<Recipes> findAllByIngredients(Ingredients ingredients);
 }

@@ -1,4 +1,4 @@
-<div class="back" [ngStyle]="{background: theme ==1?'url(assets/background-image/vegetable.jpg)': 'url(../assets/background-image/sweets.jpg)'}">
+<div class="back" [ngStyle]="{background: theme ==1?'url(./assets/background-image/vegetable.jpg) no-repeat' : 'url(../assets/background-image/sweets.jpg) no-repeat'}">
   <nav class="navbar navbar-expand-lg bg-white">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0" routerLinkActive="active">
@@ -30,26 +30,21 @@
       </ul>
 
         <ul class="nav navbar-nav navbar-right">
-        <li>
-          <button class=" btn btn-outline-success my-2 my-sm-0" (click)="clickedTrue()">{{'vegetable' | translate}}</button>
-        </li>
-        <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="clickedFalse()">{{'fruit' | translate}}</button>
-        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
+              {{'Dropdown link' | translate}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-divider" role="button" (click)="clickedTrue()">{{'vegetable' | translate}}</a>
+              <a class="dropdown btn" role="button" (click)="clickedTrue()">{{'vegetable' | translate}}</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown"  role="button"(click)="clickedFalse()">{{'fruit' | translate}}</a>
+              <a class="dropdown btn"   role="button"(click)="clickedFalse()">{{'sweet' | translate}}</a>
             </div>
           </li>
-        <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('ru')">ru</button></li>
+        <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('ru')" style="margin-left: 10px;">{{'ru' | translate}}</button></li>
 
-        <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('by')">by</button></li>
+        <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('by')" >{{'bel' | translate}}</button></li>
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">{{'Logout' | translate}}</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()" style="margin-left: 10px;">{{'Logout' | translate}}</button>
         </li>
       </ul>
     </div>

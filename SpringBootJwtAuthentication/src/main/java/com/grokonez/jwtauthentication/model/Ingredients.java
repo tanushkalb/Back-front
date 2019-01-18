@@ -19,8 +19,7 @@ public class Ingredients {
     @JsonIgnore
     @ManyToMany(mappedBy = "ingredients",fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
+                    CascadeType.ALL
             })
     private Set<Recipes> recipes;
 

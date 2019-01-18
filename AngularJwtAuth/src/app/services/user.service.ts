@@ -44,7 +44,7 @@ export class UserService {
 
 
   public getRecipesById(id) {
-    return this.http.get<RecipesInfo[]>(this.recipesUrl + '/' + id);
+    return this.http.get<RecipesInfo>(this.recipesUrl + '/' + id);
   }
 
   public getRecipesByCarrentUser() {
@@ -60,6 +60,11 @@ export class UserService {
   }
 
   public getCommentByReceptId(receptId) {
+    return this.http.get<Comment[]>(this.Url + 'comment/Comment/Commentbyrecept/' + receptId);
+  }
+
+
+  public getLiveComments(receptId) {
     return this.http.get<Comment[]>(this.Url + 'comment/Comment/Commentbyrecept/' + receptId);
   }
 
@@ -86,6 +91,10 @@ export class UserService {
     return this.http.get(this.Url + 'like/userId/commentId/' + this.tokenStorage.getUser().id + '/' + commentId)
       .pipe(map(response => response[0]));
   }
+
+  public getAllLike() {
+    return this.http.get(this.recipesUrl + "/alllike")
+}
 
   public getDeepRatingByReceptId(receptId) {
     return this.http.get<Rating>(this.Url + 'rating/ratingId/' + receptId)
@@ -121,6 +130,10 @@ export class UserService {
   public getRatingByUserRecipeId(recipeId) {
     return this.http.get<Rating>(this.Url + 'rating/rat/userId/' + this.tokenStorage.getUser().id + '/' + recipeId)
       .pipe(map(response => response[0]));
+  }
+
+  public getRecipesByIngredient(ingredientId) {
+    return this.http.post<RecipesInfo[]>(this.recipesUrl + '/search/kokoko', ingredientId);
   }
 
   public createRecipe(recipe) {

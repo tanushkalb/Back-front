@@ -26,13 +26,8 @@ export class AddrecipesComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  i: IngredientInfo[];
   all: Array<string> = [];
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-
-  fruits: Fruit[] = []
-  ;
-
   constructor(private router: Router, private userService: UserService, public authService: AuthService) {
   }
 

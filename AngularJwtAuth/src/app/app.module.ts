@@ -24,7 +24,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {RatingModule} from 'ngx-rating';
 import {AllrecipesComponent} from './allrecipes/allrecipes.component';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatAutocompleteModule, MatFormFieldModule} from '@angular/material';
+import {MatAutocompleteModule, MatCardModule, MatFormFieldModule} from '@angular/material';
+import {EditorModule} from 'primeng/editor';
+import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {SliderModule} from 'primeng/slider';
+import {DropdownModule, MultiSelectModule} from 'primeng/primeng';
+
 
 
 
@@ -54,6 +60,14 @@ import {MatAutocompleteModule, MatFormFieldModule} from '@angular/material';
     MatChipsModule,
     MatFormFieldModule,
     MatAutocompleteModule,
+    EditorModule,
+    MatCardModule,
+    MatIconModule,
+    ButtonModule,
+    TableModule,
+    SliderModule,
+    MultiSelectModule,
+    DropdownModule,
     // Put ionic2-rating module here
     TranslateModule.forRoot({
       loader: {

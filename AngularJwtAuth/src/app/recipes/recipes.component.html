@@ -1,19 +1,52 @@
 
   <h2> {{'User Details' | translate}}</h2>
+
+  <p-table #dt [columns]="cols" [value]="recipes" [paginator]="true" [rows]="5">
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+      <tr>
+        <th *ngFor="let col of columns" [ngSwitch]="col.field">
+          <input *ngSwitchCase="'title'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+          <div *ngSwitchCase="'date'">
+            Value < {{yearFilter}}
+            <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="yearFilter"></i>
+            <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="2019" [max]="2019" (onChange)="onYearChange($event, dt)"></p-slider>
+          </div>
+          <p-dropdown *ngSwitchCase="'brand'" [options]="allIngredients" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+          <p-multiSelect *ngSwitchCase="'allIngredient'" [options]="allIngredients" defaultLabel="All Ingredients" (onChange)="dt.filter($event.name, col.field, 'in')"></p-multiSelect>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
   <table class="table table-striped table-active">
     <thead>
     <tr>
-      <th class="hidden">Id</th>
       <th>{{'Title' | translate}}</th>
-      <th>{{'Recipe' | translate}}</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let recipe of recipes">
-      <th class="hidden">{{recipe.id}}}</th>
       <th>{{recipe.title}}</th>
-      <th>{{recipe.description}}</th>
+      <th>{{recipe.date}}</th>
       <th>
         <button class="btn btn-success" (click)="goToCheck(recipe)" style="margin-left: 20px;"> {{'CHECK' | translate}}</button>
         <button class="btn btn-success" (click)="editRecipe(recipe)" style="margin-left: 10px;"> {{'EDIT' | translate}}</button>
@@ -22,4 +55,6 @@
     </tr>
     </tbody>
   </table>
+
+
 

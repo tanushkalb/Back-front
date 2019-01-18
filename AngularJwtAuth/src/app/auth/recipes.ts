@@ -7,5 +7,6 @@ export class RecipesInfo {
   description: string;
   recipe_rating: number;
   averageRating: number;
+  date: Date;
   ingredients: IngredientInfo[] = [];
 }

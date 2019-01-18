@@ -1,5 +1,6 @@
 package com.grokonez.jwtauthentication.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -17,8 +18,11 @@ public class Recipes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     private String title;
+
+    @Lob
     private String description;
     private double averageRating;
+    @JsonFormat(pattern = "HH:mm dd-MM-yyyy", timezone = "Europe/Minsk")
     private Date date;
 
 

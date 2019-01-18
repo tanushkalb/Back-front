@@ -1,9 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Pipe, PipeTransform, ViewEncapsulation} from '@angular/core';
 import {RecipesInfo} from '../auth/recipes';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {Like} from '../auth/like';
 import {Comment} from '../auth/comment';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {Observable, timer} from 'rxjs';
+
 
 @Component({
   selector: 'app-recipeinfo',
@@ -12,36 +15,36 @@ import {Comment} from '../auth/comment';
 })
 export class RecipeinfoComponent implements OnInit {
 
-  recipes: RecipesInfo[] = [];
+
+
+  recipes: RecipesInfo;
 
   like: Like = new Like();
 
   likes: Like[];
-
-  fff: boolean = true;
-
-  comment: Comment = new Comment();
+   comment: Comment = new Comment();
 
   comments: Comment[];
-
   recipeId = window.localStorage.getItem('RecipeById');
+  html: SafeHtml;
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private sanitizer: DomSanitizer, private router: Router, private userService: UserService) {
   }
+
+
+
 
   ngOnInit() {
     this.userService.getRecipesById(this.recipeId)
       .subscribe(data => {
-        this.recipes = data;
+        this.recipes = data; this.html = this.sanitizer.bypassSecurityTrustHtml(this.recipes.description);
       });
-    this.userService.getCommentByReceptId(this.recipeId)
-      .subscribe(data => {
-        this.comments = data;
-        this.comments.forEach((com) => {
-          this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
-        });
-      });
+    this.update();
+    let timer1 = timer(10,3000);
 
+    timer1.subscribe( () =>
+      this.update()
+    );
     // this.comment.comment_like = data1
     // console.log(data1)
   }
@@ -50,13 +53,7 @@ export class RecipeinfoComponent implements OnInit {
   createComment(): void {
     this.userService.createComment(this.comment, this.recipeId)
       .subscribe(() =>
-        this.userService.getCommentByReceptId(this.recipeId)
-          .subscribe(data => {
-            this.comments = data;
-            this.comments.forEach((com) => {
-              this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
-            });
-          })
+        this.update()
       );
   }
 
@@ -74,22 +71,28 @@ export class RecipeinfoComponent implements OnInit {
   save(data, commentId) {
     if (data === undefined || data === null) {
       this.like.click = this.comment.comment_click = 1;
-      this.userService.createLike(this.like, commentId).subscribe(data3 => this.return(commentId));
+      this.userService.createLike(this.like, commentId).subscribe(() => this.update());
       console.log('yes1');
     } else {
       if (data.click === 0) {
         this.like.click = this.comment.comment_click = 1;
-        this.userService.updateLike(this.like, commentId).subscribe(data3 => this.return(commentId));
-        console.log('no');
+        // this.comment.active = 1;
+        //update comment this.userservice.updatecomment(this.comment, this.commentId//передается параметр методу
+        // обнолвяем конкретный коммент)
+        this.userService.updateLike(this.like, commentId).subscribe(() => this.update());
+        console.log(this.comment);
       } else {
         this.like.click = this.comment.comment_click = 0;
-        this.userService.updateLike(this.like, commentId).subscribe(data3 => this.return(commentId));
-        console.log('yes');
+        this.userService.updateLike(this.like, commentId).subscribe(() => this.update());
+        console.log(this.comment);
       }
+
+      // обавить в таблицу coment поле актив для лайка и записывать
+      // туда значение 0 , 1 вызывать тут и проверять в разметке
     }
   }
 
-  return(commentId): void {
+  update(): void {
     this.userService.getCommentByReceptId(this.recipeId)
       .subscribe(data => {
         this.comments = data;

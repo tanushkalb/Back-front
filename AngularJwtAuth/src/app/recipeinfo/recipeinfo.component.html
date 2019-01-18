@@ -1,27 +1,17 @@
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th class="hidden">Id</th>
-    <th>{{'Title' | translate}}</th>
-    <th>{{'Description' | translate}}</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td class="hidden">{{recipes?.id }}}</td>
-    <td>{{recipes?.title}}</td>
-    <td>{{recipes?.description}}</td>
-  </tr>
-  </tbody>
-</table>
-
+<h1>{{recipes?.title}}</h1>
+    <mat-card>
+     <div id="top" [innerHTML]="html">
+     </div>
+  </mat-card>
 <div class="form-group">
-
+  <br>
+  <mat-card class="example20">
   <tr *ngFor="let comment of comments">
     <td>{{comment.description}}</td>
       <td><button class="btn btn-success" [ngStyle]="{background: comment.comment_click === 1 ?'red': 'blue'}" (click)="createLike(comment.id)">{{comment.comment_like}} like</button></td>
   </tr>
+    </mat-card>
   <input [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control" id="firstName">
   <button class="btn btn-success" (click)="createComment()">{{'CommentButton' | translate}}</button>
 

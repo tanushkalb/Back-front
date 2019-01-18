@@ -24,10 +24,10 @@ public class LikeController {
     @Autowired
     CommentRepository commentRepository;
 
-//    @GetMapping()
-//    public List getLike(){
-//        return likeRepository.findAll();
-//    }
+    @GetMapping("*/alllike")
+    public List getLike(){
+        return likeRepository.findAll();
+    }
 
     @GetMapping("*/commentId/{id}")
     public List <Likes> getLikeByCommentId(@PathVariable("id") long id ){

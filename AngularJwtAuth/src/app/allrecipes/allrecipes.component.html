@@ -1,21 +1,22 @@
 <h2> {{'User Details' | translate}}</h2>
-
+<mat-chip-list >
+  <h2>{{'Tags' | translate}}:</h2>
+  <mat-chip color="primary" selected (click)="getAll()">All ingredients
+  </mat-chip>
+  <mat-chip color="warn" selected *ngFor="let ingredient of all" [value]="ingredient.name" (click)="getSearchRecipes(ingredient)">{{ingredient.name}}
+  </mat-chip>
+</mat-chip-list>
 <table class="table table-striped">
   <thead>
   <tr>
-    <th class="hidden">Id</th>
     <th>{{'Title' | translate}}</th>
-    <th>{{'Recipe' | translate}}</th>
-    <th></th>
+    <th>{{'Rating' | translate}}</th>
     <th></th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let recipe of recipes">
-    <td class="hidden">{{recipe.id}}}</td>
     <td>{{recipe.title}}</td>
-    <td>{{recipe.description}}</td>
-
     <td>
       <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount" (click)="createRating(recipe.id)">
       </rating>

@@ -1,9 +1,11 @@
 package com.grokonez.jwtauthentication.controller;
 
 
+import com.grokonez.jwtauthentication.model.Ingredients;
 import com.grokonez.jwtauthentication.model.Rating;
 import com.grokonez.jwtauthentication.model.Recipes;
 import com.grokonez.jwtauthentication.model.User;
+import com.grokonez.jwtauthentication.repository.IngredientReposirory;
 import com.grokonez.jwtauthentication.repository.RatingRepository;
 import com.grokonez.jwtauthentication.repository.RecipesRepository;
 import com.grokonez.jwtauthentication.repository.UserRepository;
@@ -11,6 +13,7 @@ import com.grokonez.jwtauthentication.security.services.RatingService;
 import com.grokonez.jwtauthentication.security.services.RecipeService;
 import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -33,6 +36,9 @@ public class RecipesController {
 
     @Autowired
     private RatingService ratingService;
+
+    @Autowired
+    private IngredientReposirory ingredientReposirory;
 
     @Autowired
     private RecipeService recipeService;
@@ -68,9 +74,16 @@ public class RecipesController {
     public Recipes createRecipe(@PathVariable("userId") long id, @RequestBody Recipes recipes) {
         User persona = userRepository.findById(id).get();
         recipes.setUser(persona);
+
         recipes.setDate(new Date());
         recipes.setIngredients(recipes.getIngredients());
         return recipeService.save(recipes);
+    }
+
+    @PostMapping("*/search/kokoko")
+    public List <Recipes> getRecipesByTag(@RequestBody Ingredients ingredients)
+    {
+        return recipesRepository.findAllByIngredients(ingredients);
     }
 
 
@@ -89,6 +102,7 @@ public class RecipesController {
     public Recipes updateRecipe(@RequestBody Recipes recipes, @PathVariable("id") long id) {
         User persona = userRepository.findById(id).get();
         recipes.setUser(persona);
+        recipes.setDate(new Date());
         return recipesRepository.save(recipes);
     }
 
