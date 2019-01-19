@@ -57,4 +57,14 @@ public class CommentController {
 //        comments.setDate_publish_comment(new Date());
         return commentRepository.save(comments);
     }
+
+    @PutMapping("*/updateComment/{userId}/recipeId/{recipeId}")
+    public Comments updateComment(@PathVariable("userId") long id,@PathVariable("recipeId") long comId,@RequestBody Comments comments) {
+        User persona = userRepository.findById(id).get();
+        Recipes recipe = recipesRepository.findById(comId).get();
+        comments.setUser(persona);
+        comments.setRecipe(recipe);
+        comments.setCommentClick(comments.getCommentClick());
+        return commentRepository.save(comments);
+    }
 }

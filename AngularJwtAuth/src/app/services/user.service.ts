@@ -160,6 +160,10 @@ export class UserService {
     return this.http.put(this.recipesUrl + '/' + this.tokenStorage.getUser().id, recipe);
   }
 
+  public updateComment(comment, recipeId) {
+    return this.http.put(this.Url + 'comment/updateComment/' + this.tokenStorage.getUser().id + '/recipeId/' + recipeId, comment);
+  }
+
   public updateUser(user) {
     return this.http.put(this.Url + 'user/carrentuser/' + this.tokenStorage.getUser().id, user);
   }

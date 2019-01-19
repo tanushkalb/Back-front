@@ -9,7 +9,7 @@
   <mat-card class="example20">
   <tr *ngFor="let comment of comments">
     <td>{{comment.description}}</td>
-      <td><button class="btn btn-success" [ngStyle]="{background: comment.comment_click === 1 ?'red': 'blue'}" (click)="createLike(comment.id)">{{comment.comment_like}} like</button></td>
+      <td><button class="btn btn-success" [ngStyle]="{background: comment.commentClick === 1 ?'red': 'blue'}" (click)="createLike(comment.id, comment)">{{comment.comment_like}} like</button></td>
   </tr>
     </mat-card>
   <input [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control" id="firstName">

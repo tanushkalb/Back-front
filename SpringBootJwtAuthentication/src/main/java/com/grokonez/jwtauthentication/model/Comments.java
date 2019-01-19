@@ -27,6 +27,8 @@ public class Comments {
     @OneToMany(cascade = REMOVE, mappedBy = "comment")
     private Set<Likes> likes;
 
+    private int commentClick;
+
     @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "recipe_id")
@@ -89,5 +91,13 @@ public class Comments {
 
     public void setLikeCount(long likeCount) {
         this.likeCount = likeCount;
+    }
+
+    public int getCommentClick() {
+        return commentClick;
+    }
+
+    public void setCommentClick(int commentClick) {
+        this.commentClick = commentClick;
     }
 }

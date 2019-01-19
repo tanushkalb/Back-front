@@ -8,5 +8,5 @@ export class Comment {
   description: string;
   recipe_comment: number;
   comment_like: number;
-  comment_click: number;
+  commentClick: number;
 }

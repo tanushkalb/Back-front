@@ -40,11 +40,11 @@ export class RecipeinfoComponent implements OnInit {
         this.recipes = data; this.html = this.sanitizer.bypassSecurityTrustHtml(this.recipes.description);
       });
     this.update();
-    let timer1 = timer(10,3000);
-
-    timer1.subscribe( () =>
-      this.update()
-    );
+    // let timer1 = timer(10,3000);
+    //
+    // timer1.subscribe( () =>
+    //   this.update()
+    // );
     // this.comment.comment_like = data1
     // console.log(data1)
   }
@@ -57,9 +57,9 @@ export class RecipeinfoComponent implements OnInit {
       );
   }
 
-  createLike(commentId): void {
+  createLike(commentId, comment): void {
 
-    this.userService.getLikesByUserIdAndComment(commentId).subscribe(data => this.save(data, commentId));
+    this.userService.getLikesByUserIdAndComment(commentId).subscribe(data => this.save(data, commentId, comment));
 
 
     // this.save(data, commentId)
@@ -68,23 +68,26 @@ export class RecipeinfoComponent implements OnInit {
     // this.userService.createLike(this.like, commentId).subscribe(data => console.log(data));
   }
 
-  save(data, commentId) {
+  save(data, commentId, comment) {
     if (data === undefined || data === null) {
-      this.like.click = this.comment.comment_click = 1;
+      this.like.click = comment.commentClick = 1;
       this.userService.createLike(this.like, commentId).subscribe(() => this.update());
+      this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
       console.log('yes1');
     } else {
       if (data.click === 0) {
-        this.like.click = this.comment.comment_click = 1;
+        this.like.click = comment.commentClick = 1;
         // this.comment.active = 1;
         //update comment this.userservice.updatecomment(this.comment, this.commentId//передается параметр методу
         // обнолвяем конкретный коммент)
         this.userService.updateLike(this.like, commentId).subscribe(() => this.update());
-        console.log(this.comment);
+        this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
+        console.log(comment);
       } else {
-        this.like.click = this.comment.comment_click = 0;
+        this.like.click = comment.commentClick = 0;
         this.userService.updateLike(this.like, commentId).subscribe(() => this.update());
-        console.log(this.comment);
+        this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
+        console.log(comment);
       }
 
       // обавить в таблицу coment поле актив для лайка и записывать
