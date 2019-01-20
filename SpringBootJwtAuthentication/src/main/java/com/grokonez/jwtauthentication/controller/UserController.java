@@ -20,10 +20,10 @@ public class UserController {
 
     @PutMapping("*/carrentuser/{id}")
     public User updateUser(@PathVariable("id") long id, @RequestBody User user) {
-        User persona = userRepository.findById(id).get();
-        persona.setTheme(user.getTheme());
-        persona.setLang(user.getLang());
-        return userRepository.save(persona);
+//        User persona = userRepository.findById(id).get();
+//        persona.setTheme(user.getTheme());
+//        persona.setLang(user.getLang());
+        return userRepository.save(user);
     }
 
     //@PostMapping("/get")

@@ -5,6 +5,7 @@ import {RecipesInfo} from '../auth/recipes';
 import {IngredientInfo} from '../auth/ingredientInfo';
 import {SelectItem} from 'primeng/api';
 import {Table,} from 'primeng/table';
+import {User} from '../auth/user';
 
 @Component({
   selector: 'app-recipes',
@@ -25,14 +26,17 @@ export class RecipesComponent implements OnInit {
   buttons: SelectItem[];
   selectedRecipes: RecipesInfo[] = [];
   dateFilters: any;
-  //buttons: Array<string>;
-
+  isUserNameActive: boolean;
+  savedUserName: string;
+user: User;
   @ViewChild('dt') private _table: Table;
 
   constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
+
+    this.userService.getCarrentUser().subscribe( data => this.user = data );
     this.cols = [
       {field: 'title', header: 'Title'},
       {field: 'category', header: 'Category'},
@@ -98,6 +102,9 @@ act(data, event) {
   }
 
   }
+
+
+
   onFilterIngredients(event, dt: Table) {
     if (event.value.length > 0) {
       this.selectedRecipes = this.recipes.filter((item) => {
@@ -132,6 +139,20 @@ act(data, event) {
     }, 200);
   }
 
+  updateUser(save = false) {
+    this.isUserNameActive = !this.isUserNameActive;
+    if (this.isUserNameActive) {
+      this.savedUserName = this.user.username;
+    } else {
+      if (save) {
+        this.savedUserName = this.user.username;
+      } else {
+        this.user.username = this.savedUserName;
+      }
+      this.userService.updateUser(this.user).subscribe( data => console.log(data));
+    }
+  }
+
 
   goToCheck(recipe: RecipesInfo): void {
     window.localStorage.removeItem('RecipeById');
@@ -151,6 +172,8 @@ act(data, event) {
         this.recipes = this.recipes.filter(u => u !== recipe);
       });
   }
+
+
 
 
 }

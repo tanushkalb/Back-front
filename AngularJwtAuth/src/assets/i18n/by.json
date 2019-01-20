@@ -52,6 +52,11 @@
   "Username must be at least 3 characters": "Імя карыстальніка павінна быць не менш за 3-х знакаў",
   "All ingredients": "Усе iнгрэдыенты",
   "Comments": "Каментарыi",
-  "Category": "Катыгорыя"
+  "Category": "Катыгорыя",
+  "Save": "Захаваць",
+  "Name": "Iмя",
+  "Date": "Дата",
+  "Act": "Дзеянне"
+
 
 }

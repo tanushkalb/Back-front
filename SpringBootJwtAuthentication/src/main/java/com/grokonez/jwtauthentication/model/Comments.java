@@ -14,9 +14,9 @@ public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-    private String description;
+    protected String description;
 //    private Date date_publish_comment;
-    private long likeCount;
+    protected long likeCount;
 
     @JsonIgnore
     @ManyToOne()
@@ -25,9 +25,9 @@ public class Comments {
 
 
     @OneToMany(cascade = REMOVE, mappedBy = "comment")
-    private Set<Likes> likes;
+    protected Set<Likes> likes;
 
-    private int commentClick;
+    protected int commentClick;
 
     @JsonIgnore
     @ManyToOne()
@@ -68,14 +68,6 @@ public class Comments {
     public void setDescription(String description) {
         this.description = description;
     }
-
-//    public Date getDate_publish_comment() {
-//        return date_publish_comment;
-//    }
-//
-//    public void setDate_publish_comment(Date date_publish_comment) {
-//        this.date_publish_comment = date_publish_comment;
-//    }
 
     public Set<Likes> getLikes() {
         return likes;

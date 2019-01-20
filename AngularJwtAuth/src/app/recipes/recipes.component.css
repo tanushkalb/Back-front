@@ -1,4 +1,16 @@
 .table{
   color: darkorange;
 }
+.in-place-container mat-icon{
+  visibility: hidden;
+}
+.in-place-container:hover mat-icon{
+  visibility: visible;
+}
 
+.in-place-container{
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.87);
+}
+.in-place-container:hover{
+  border-bottom: none;
+}

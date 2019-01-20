@@ -34,6 +34,11 @@ public class LikeController {
         return likeRepository.findAllByCommentId(id);
     }
 
+    @GetMapping("*/recipeid/{id}/userid/{userid}")
+    public List <Likes> getLikeByRecipeId(@PathVariable("id") long id, @PathVariable("userid") long uid ){
+        return likeRepository.findAllByComment_RecipeIdAndUserId(id, uid);
+    }
+
     @GetMapping("*/userId/commentId/{id}/{comId}")
     public List<Likes> getLikeByUserIdAndCommentId(@PathVariable("id") long id, @PathVariable("comId") long comId){
         return likeRepository.findByCommentIdAndUserId(comId, id);

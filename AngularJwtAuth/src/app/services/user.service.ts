@@ -59,10 +59,13 @@ export class UserService {
     return this.http.get<Comment[]>(this.Url + 'comment/comment');
   }
 
-  public getCommentByReceptId(receptId) {
-    return this.http.get<Comment[]>(this.Url + 'comment/Comment/Commentbyrecept/' + receptId);
+  public getCommentByReceptIdAndUserid(receptId, userId) {
+    return this.http.get<Comment[]>(this.Url + 'comment/Comment/Commentbyrecept/' + receptId + '/' + this.tokenStorage.getUser().id);
   }
 
+  public getCommentByReceptId(receptId) {
+    return this.http.get<Comment[]>(this.Url + 'comment/comment/recipeid/' + receptId);
+  }
 
   public getLiveComments(receptId) {
     return this.http.get<Comment[]>(this.Url + 'comment/Comment/Commentbyrecept/' + receptId);

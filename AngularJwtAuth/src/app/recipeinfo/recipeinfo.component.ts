@@ -44,13 +44,12 @@ export class RecipeinfoComponent implements OnInit {
       });
 
     this.update();
-    let timer1 = timer(10,3000);
+
+    let timer1 = timer(10,3000 );
 
     timer1.subscribe( () =>
       this.update()
     );
-    this.comment.comment_like = data1
-    console.log(data1)
   }
 
 // Добавить таймер для обновления комментов из базы
@@ -101,23 +100,31 @@ export class RecipeinfoComponent implements OnInit {
   }
 
   update(): void {
-    this.userService.getCommentByReceptId(this.recipeId)
+
+    if (this.tokenStorage.getToken()) {
+    this.userService.getCommentByReceptIdAndUserid(this.recipeId, this.tokenStorage.getUser().id)
       .subscribe(data => {
         this.comments = data;
-        this.comments.forEach((com) => {
-          // if (this.tokenStorage.getToken()) {
-            this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
-            this.userService.getLikesByUserIdAndComment(com.id).subscribe( data2 => {
-                if (data2) {
-                  com.isLike = data2.click;
-                } else {
-                  com.isLike = 0;
-                }
-              }
-              );
-          // }
-
-        });
       });
-  }
+    }
+
+        // this.comments.forEach((com) => {
+        //   // if (this.tokenStorage.getToken()) {
+        //     this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
+        //     this.userService.getLikesByUserIdAndComment(com.id).subscribe( data2 => {
+        //         if (data2) {
+        //           com.isLike = data2.click;
+        //         } else {
+        //           com.isLike = 0;
+        //         }
+        //       }
+        //       );
+        //   // }
+        //
+        // });
+
+   else {
+  this.userService.getCommentByReceptId(this.recipeId)
+    .subscribe(data => this.comments = data );
 }
+}}

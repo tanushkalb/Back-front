@@ -27,7 +27,7 @@ import {EditorModule} from 'primeng/editor';
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import {SliderModule} from 'primeng/slider';
-import {CalendarModule, DropdownModule, InputTextModule, MultiSelectModule} from 'primeng/primeng';
+import {CalendarModule, DropdownModule, InplaceModule, InputTextModule, MultiSelectModule} from 'primeng/primeng';
 
 
 
@@ -66,6 +66,7 @@ import {CalendarModule, DropdownModule, InputTextModule, MultiSelectModule} from
     DropdownModule,
     CalendarModule,
     InputTextModule,
+    InplaceModule,
     // Put ionic2-rating module here
     TranslateModule.forRoot({
       loader: {

@@ -2,10 +2,12 @@ package com.grokonez.jwtauthentication.controller;
 
 import com.grokonez.jwtauthentication.model.Comments;
 import com.grokonez.jwtauthentication.model.Recipes;
+import com.grokonez.jwtauthentication.model.Send.CommentsSend;
 import com.grokonez.jwtauthentication.model.User;
 import com.grokonez.jwtauthentication.repository.CommentRepository;
 import com.grokonez.jwtauthentication.repository.RecipesRepository;
 import com.grokonez.jwtauthentication.repository.UserRepository;
+import com.grokonez.jwtauthentication.security.services.CommentService;
 import com.grokonez.jwtauthentication.security.services.LikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,14 +33,17 @@ public class CommentController {
     @Autowired
     private LikeService likeService;
 
-    @GetMapping("*/Comment/Commentbyrecept/{comid}")
-    public List<Comments> findCommentById(@PathVariable("comid") long id) {
-        return commentRepository.findAllByRecipeId(id);
+    @Autowired
+    private CommentService commentService;
+
+    @GetMapping("*/Comment/Commentbyrecept/{recid}/{userid}")
+    public List<CommentsSend> findCommentById(@PathVariable("recid") long id, @PathVariable("userid") long uid) {
+        return commentService.getByRecipeIdAndUserId(id, uid);
     }
 
-    @GetMapping("*/comment")
-    public List getComments() {
-        return commentRepository.findAll();
+    @GetMapping("*/comment/recipeid/{recipeid}")
+    public List getComments(@PathVariable("recipeid") long id) {
+        return commentRepository.findAllByRecipeId(id);
     }
 
     @GetMapping("*/count/{commentId}")
