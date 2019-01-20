@@ -2,11 +2,10 @@
   <br>
   <mat-chip-list >
     <h2>{{'Tags' | translate}}:</h2>
-    <mat-chip color="warn" selected *ngFor="let ingredient of all" [value]="ingredient">{{ingredient}}
+    <mat-chip color="primary" selected *ngFor="let ingredient of all" [value]="ingredient">{{ingredient}}
     </mat-chip>
   </mat-chip-list>
   <h2> {{'The most popular' | translate}}</h2>
-
   <table class="table table-striped">
     <thead>
     <tr>
@@ -23,8 +22,8 @@
         </rating>
       </td>
       <td>
-        <button class="btn btn-success" (click)="goToCheck(recipe)"
-                style="margin-left: 20px;"> {{'CHECK' | translate}}</button>
+        <button class="btn" (click)="goToCheck(recipe)"
+                style="background-color: skyblue; margin-left: 20px;"> {{'CHECK' | translate}}</button>
       </td>
     </tr>
     </tbody>
@@ -36,7 +35,6 @@
   <table class="table table-striped">
     <thead>
     <tr>
-
       <th>{{'Title' | translate}}</th>
       <th>{{'Rating' | translate}}</th>
       <th></th>
@@ -45,14 +43,14 @@
     <tbody>
     <tr *ngFor="let recipe of (recipesByDate | slice:-5)">
       <td>{{recipe.title}}</td>
-
       <td>
         <rating [ngModel]="recipe.recipe_rating" [(ngModel)]="starsCount" (click)="createRating(recipe.id)">
         </rating>
       </td>
-      <td>
-        <button class="btn btn-success" (click)="goToCheck(recipe)"
-                style="margin-left: 20px;"> {{'CHECK' | translate}}</button>
+      <td >
+        <button class="btn" (click)="goToCheck(recipe)"
+
+                style="background-color: skyblue; margin-left: 20px;"> {{'CHECK' | translate}}</button>
       </td>
     </tr>
     </tbody>
@@ -60,36 +58,44 @@
 </div>
 
 
-<ng-template #loggedOut>
-  <div class="row col-sm-6" style="max-width:350px;">
+<ng-template #loggedOut class="my-auto">
+  <div class="col-md-6 mx-auto my-auto" style="max-width:350px;">
+    <mat-card class="my-5 mx-auto">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
+
         <label for="username">{{'Username' | translate}}</label>
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
-               required/>
+               required minlength="3"/>
         <div *ngIf="f.submitted && username.invalid">
-          <div *ngIf="username.errors.required">{{'Username is required' | translate}}</div>
+          <div *ngIf="username.errors.required" class="alert alert-danger">{{'Username is required' | translate}}</div>
+          <div *ngIf="username.errors.minlength" class="alert alert-danger">{{'Username must be at least 3 characters' | translate}}</div>
         </div>
+
       </div>
       <div class="form-group">
+
         <label for="password">{{'Password' | translate}}</label>
         <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-               required minlength="2"/>
+               required minlength="6"/>
         <div *ngIf="f.submitted && password.invalid">
-          <div *ngIf="password.errors.required">{{'Password is required' | translate}}</div>
-          <div *ngIf="password.errors.minlength">{{'Password must be at least 6 characters' | translate}}</div>
+          <div *ngIf="password.errors.required" class="alert alert-danger">{{'Password is required' | translate}}</div>
+          <div *ngIf="password.errors.minlength" class="alert alert-danger">{{'Password must be at least 6 characters' | translate}}</div>
         </div>
+
       </div>
       <div class="form-group">
         <button class="btn btn-primary">{{'Login' | translate}}</button>
         <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
           {{'Login failed' | translate}} {{'errorMessageLogin' | translate}}
         </div>
+        <div *ngIf="errorMessage"  class="alert alert-danger"> {{ errorMessage | translate }}</div>
       </div>
     </form>
     <hr/>
     <p>{{'Don\'t have an account?' | translate}}</p>
     <a href="signup" class="btn btn-success">{{'Sign Up' | translate}}</a>
+    </mat-card>
   </div>
 </ng-template>
 <br>

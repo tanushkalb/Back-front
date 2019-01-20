@@ -25,7 +25,7 @@ public class Recipes {
     @JsonFormat(pattern = "HH:mm dd-MM-yyyy", timezone = "Europe/Minsk")
     private Date date;
 
-
+    private String category;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
@@ -118,5 +118,13 @@ public class Recipes {
 
     public void setIngredients(Set<Ingredients> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

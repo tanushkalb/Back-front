@@ -8,10 +8,14 @@
 
 }
 .example20{
-  width: 30%;
+  width:100%;
 }
 img { height: 10%!important;
   width: 20px !important;
+}
+.heard{
+  color: skyblue;
+  cursor: pointer;
 }
 
 img

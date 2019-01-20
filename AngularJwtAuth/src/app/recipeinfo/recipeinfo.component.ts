@@ -6,6 +6,7 @@ import {Like} from '../auth/like';
 import {Comment} from '../auth/comment';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {Observable, timer} from 'rxjs';
+import {TokenStorageService} from '../auth/token-storage.service';
 
 
 @Component({
@@ -19,6 +20,8 @@ export class RecipeinfoComponent implements OnInit {
 
   recipes: RecipesInfo;
 
+  searchValue: string = '';
+
   like: Like = new Like();
 
   likes: Like[];
@@ -28,7 +31,7 @@ export class RecipeinfoComponent implements OnInit {
   recipeId = window.localStorage.getItem('RecipeById');
   html: SafeHtml;
 
-  constructor(private sanitizer: DomSanitizer, private router: Router, private userService: UserService) {
+  constructor(private tokenStorage: TokenStorageService, private sanitizer: DomSanitizer, private router: Router, private userService: UserService) {
   }
 
 
@@ -39,6 +42,7 @@ export class RecipeinfoComponent implements OnInit {
       .subscribe(data => {
         this.recipes = data; this.html = this.sanitizer.bypassSecurityTrustHtml(this.recipes.description);
       });
+
     this.update();
     // let timer1 = timer(10,3000);
     //
@@ -51,6 +55,7 @@ export class RecipeinfoComponent implements OnInit {
 
 // Добавить таймер для обновления комментов из базы
   createComment(): void {
+    this.searchValue = null;
     this.userService.createComment(this.comment, this.recipeId)
       .subscribe(() =>
         this.update()
@@ -100,7 +105,9 @@ export class RecipeinfoComponent implements OnInit {
       .subscribe(data => {
         this.comments = data;
         this.comments.forEach((com) => {
-          this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
+          if (this.tokenStorage.getToken()) {
+            this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
+          }
         });
       });
   }

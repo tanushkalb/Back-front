@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.grokonez.jwtauthentication.security.jwt.JwtAuthEntryPoint;
 import com.grokonez.jwtauthentication.security.jwt.JwtAuthTokenFilter;
-import com.grokonez.jwtauthentication.security.services.UserDetailsServiceImpl;
+import com.grokonez.jwtauthentication.ServiceImpl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().
                 authorizeRequests()
-                .antMatchers("/api/auth/**","/recipes/**","/recipes","/user/carrentuser/{id}", "/comment/{userCommentId}","/rating/ratingId/{id}", "/rating/ratingUserId/{userId}/ratingRecipeId/{recipeId}", "/rating/user/{userId}/recipe/{recipeId}", "/rating/rat/userId/{id}/{recId}", "/like/user/{userId}/comment/{commentId}", "/like/userId/commentId/{id}/{comId}", "/like/commentId/{id}", "/comment", "/comment/updateComment","/recipes/search/kokoko").permitAll()
+                .antMatchers("/api/auth/**","/signin/*","/recipes/**","/comment/Comment/Commentbyrecept/{comid}").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

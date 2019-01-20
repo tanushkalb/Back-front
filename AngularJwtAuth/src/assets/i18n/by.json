@@ -49,6 +49,9 @@
   "Fail -> Username is already taken!": "Імя карыстальніка ўжо занята",
   "Fail -> Email is already in use!": "Email з такой назвай ужо існуе",
   "Name must be at least 3 characters": "Імя павінна змяшчаць не менш за 3 сімвалаў",
-  "Username must be at least 3 characters": "Імя карыстальніка павінна быць не менш за 3-х знакаў"
+  "Username must be at least 3 characters": "Імя карыстальніка павінна быць не менш за 3-х знакаў",
+  "All ingredients": "Усе iнгрэдыенты",
+  "Comments": "Каментарыi",
+  "Category": "Катыгорыя"
 
 }

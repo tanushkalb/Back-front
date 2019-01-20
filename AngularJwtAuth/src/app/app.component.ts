@@ -49,24 +49,19 @@ export class AppComponent implements OnInit {
       if (this.user.lang) {
         this.translate.use(this.user.lang);
       }
-
     });
-    this.user = this.tokenStorage.getUser();
-    this.theme = this.user.theme;
-    console.log(this.user);
 
-    // this.userService.getCarrentUser()
-    //   .subscribe(data => {
-    //     this.user = data;
-    //   });
-    // console.log(this.user);
+    this.user = this.tokenStorage.getUser();
+    if (this.user === null) {
+      this.theme = 0;
+    }
   }
 
   clickedFalse() {
     // document.body.style.background = 'url(../../assets/background-image/sweets.jpg);';
     console.log();
     this.theme = 0;
-    if (this.user) {
+    if (this.user !== null) {
       this.user.theme = this.theme;
       this.userService.updateUser(this.user)
         .subscribe();

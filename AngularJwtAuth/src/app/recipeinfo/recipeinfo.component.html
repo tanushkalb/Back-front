@@ -1,19 +1,44 @@
+<br>
+<mat-card><h1>{{recipes?.title}}</h1></mat-card>
+<br>
+<mat-card>
 
-<h1>{{recipes?.title}}</h1>
-    <mat-card>
      <div id="top" [innerHTML]="html">
      </div>
   </mat-card>
+<br>
+
+<mat-card style="width: 40%">
+  <h5>{{'Category'| translate}}:</h5>
+  {{recipes?.category}}</mat-card>
+<br>
 <div class="form-group">
   <br>
-  <mat-card class="example20">
-  <tr *ngFor="let comment of comments">
-    <td>{{comment.description}}</td>
-      <td><button class="btn btn-success" [ngStyle]="{background: comment.commentClick === 1 ?'red': 'blue'}" (click)="createLike(comment.id, comment)">{{comment.comment_like}} like</button></td>
-  </tr>
-    </mat-card>
-  <input [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control" id="firstName">
-  <button class="btn btn-success" (click)="createComment()">{{'CommentButton' | translate}}</button>
+  <mat-card>
+    <h5>{{'Comments'| translate}}</h5>
+  <div *ngFor="let comment of comments" class="d-flex justify-content-between">
+    <div>
+    {{comment.description}}
+    </div>
+    <hr />
+    <!--<div *ngIf="tokenStorage.getToken()">-->
+    <div *ngIf="comment.comment_like">
 
+      {{comment.comment_like}}
+      <!--<button class="btn btn-success" [ngStyle]="{background: comment.commentClick === 1 ?'red': 'blue'}" (click)="createLike(comment.id, comment)">{{comment.comment_like}} like</button>-->
+    </div>
+    <div>
+      <!--<mat-icon [ngStyle]="{background: comment.commentClick === 1 ?'red': 'blue'}" (click)="createLike(comment.id, comment)">favorite </mat-icon>{{comment.comment_like}}-->
+      <mat-icon *ngIf="comment.commentClick === 1" class="heard"(click)="createLike(comment.id, comment)">favorite </mat-icon>
+      <mat-icon *ngIf="comment.commentClick === 0" class="heard"(click)="createLike(comment.id, comment)">favorite_border </mat-icon>
+
+    </div>
+    <!--</div>-->
+  </div>
+<div *ngIf="tokenStorage.getToken()">
+  <input (keyup.enter)="createComment()" [(ngModel)]="searchValue" type="text" id="input" style="width: 50%" [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control">
+  <button id="button" class="btn" type="button" style="background-color: skyblue; margin-top: 10px;" (click)="createComment()">{{'CommentButton' | translate}}</button>
+</div>
+  </mat-card>
 </div>
 

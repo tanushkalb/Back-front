@@ -1,24 +1,29 @@
 <br>
-<!--<mat-card><h2 class="text-center">{{'New recipe' | translate}}</h2></mat-card>-->
 
 
-  <form #f="ngForm">
+  <form #f="ngForm" >
     <div class="form-group">
       <mat-card>
-        <label for="email"><h3 class="text-center">{{'Title' | translate}}</h3></label>
+        <label for="title"><h3 class="text-center">{{'Title' | translate}}</h3></label>
       <input type="title"  [(ngModel)]="recipe.title" placeholder="{{'Title' | translate}}" name="title" class="form-control"
-             #username="ngModel" required id="email">
-      <div *ngIf="f.submitted && username.invalid">
-        <div *ngIf="username.errors.required">{{'Username is required' | translate}}</div>
+             #title="ngModel" required minlength="3" id="title">
+      <div *ngIf="title.invalid">
+        <div *ngIf="title.errors.minlength" class="alert alert-danger">{{'Username must be at least 3 characters' | translate}}</div>
       </div>
         </mat-card>
     </div>
 <div>
   <mat-card>
+    <label for="title"><h3 class="text-center">{{'Category' | translate}}</h3></label>
+    <input type="title"  [(ngModel)]="recipe.category" placeholder="{{'Category' | translate}}" name="title" class="form-control"
+           #title="ngModel" required minlength="3" id="category">
+  </mat-card>
+  <br>
+  <mat-card>
     <h3 class="first">{{'Description' | translate}}</h3>
     <p-editor [(ngModel)]="recipe.description" name="recipe.description" [style]="{'height':'320px'}"></p-editor>
     <br>
-    <button class="btn btn-success" pButton  icon="pi pi-times" mat-icon-button="clear"  type="button" label="{{'Clear' | translate}}" (click)="recipe.description=null"></button>
+    <button style="background-color: skyblue; color: rgba(0, 000, 000, 0.7); " class="btn" pButton  icon="pi pi-times" mat-icon-button="clear"  type="button" label="{{'Clear' | translate}}" (click)="recipe.description=null"></button>
   </mat-card>
 </div>
 
@@ -29,7 +34,7 @@
         <h4>{{'Ingredient' | translate}}</h4>
       <mat-form-field class="example-chip-list">
         <mat-chip-list  #chipList>
-          <mat-chip  *ngFor="let ingredient of recipe.ingredients" [selectable]="selectable"
+          <mat-chip   *ngFor="let ingredient of recipe.ingredients" [selectable]="selectable"
                     [removable]="removable" (removed)="remove(ingredient)">
             {{ingredient.name}}
             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
@@ -53,8 +58,7 @@
     </div>
 
 
-    <button class="btn btn-success" (click)="createRecipe()">{{'Create' | translate}}</button>
-    <a href="/recipes" class="btn btn-success">{{'Back' | translate}}</a>
+    <button class="btn" (click)="createRecipe()" style="background-color: skyblue; color: rgba(0, 000, 000, 0.7);">{{'Create' | translate}}</button>
   </form>
   <br>
   <br>

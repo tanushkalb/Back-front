@@ -1,10 +1,9 @@
-<div class="back" [ngStyle]="{background: theme ==1?'url(./assets/background-image/vegetable.jpg) no-repeat' : 'url(../assets/background-image/sweets.jpg) no-repeat'}">
-  <nav class="navbar navbar-expand-lg bg-white">
+<div class="back" [ngStyle]="{background: theme ==1?'url(./assets/background-image/vegetable.jpg) no-repeat center center fixed' : 'url(../assets/background-image/sweets.jpg) no-repeat center center fixed'}">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0" routerLinkActive="active">
-        <li class="nav-item"><a class="nav-link" routerLink="home">{{'Home' | translate}}</a></li>
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
-          <a class="nav-link" routerLink="auth/login">{{'Main' | translate}}</a>
+          <a class="nav-link btn" routerLink="auth/login">{{'Main' | translate}}</a>
         </li>
         <li *ngIf="authority === 'user'" class="nav-item">
           <a class="nav-link" routerLink="user" translate>User Board</a>
@@ -13,19 +12,19 @@
           <a class="nav-link" routerLink="admin">Admin Board</a>
         </li>
         <li *ngIf="authority === 'pm'" class="nav-item">
-          <a class="nav-link" routerLink="pm">PM Board</a>
+          <a class="nav-link btn btn-outline-success" routerLink="pm">PM Board</a>
         </li>
         <li *ngIf="!tokenStorage.getToken()" class="nav-item">
-          <a class="nav-link" routerLink="auth/login">{{'Login' | translate}}</a>
+          <a class="nav-link btn " routerLink="auth/login">{{'Login' | translate}}</a>
         </li>
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
-          <a class="nav-link" routerLink="addrecipes">{{'Add recipe' | translate}}</a>
+          <a class="nav-link btn " routerLink="addrecipes">{{'Add recipe' | translate}}</a>
         </li>
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
-          <a class="nav-link" routerLink="recipes">{{'Your recipes' | translate}}</a>
+          <a class="nav-link btn " routerLink="recipes">{{'Your recipes' | translate}}</a>
         </li>
-        <li *ngIf="tokenStorage.getToken()" class="nav-item">
-          <a class="nav-link" routerLink="allrecipes">{{'All recipes' | translate}}</a>
+        <li class="nav-item">
+          <a class="nav-link btn " routerLink="allrecipes">{{'All recipes' | translate}}</a>
         </li>
       </ul>
 
@@ -40,11 +39,11 @@
               <a class="dropdown btn"   role="button"(click)="clickedFalse()">{{'sweet' | translate}}</a>
             </div>
           </li>
-        <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('ru')" style="margin-left: 10px;">{{'ru' | translate}}</button></li>
+        <li><button class=" btn btn-outline-primary my-2 my-sm-0" (click)="switchLanguage('ru')" style="margin-left: 10px;">{{'ru' | translate}}</button></li>
 
-        <li><button class=" btn btn-outline-success my-2 my-sm-0" (click)="switchLanguage('by')" >{{'bel' | translate}}</button></li>
+        <li><button class=" btn btn-outline-primary my-2 my-sm-0" (click)="switchLanguage('by')" >{{'bel' | translate}}</button></li>
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()" style="margin-left: 10px;">{{'Logout' | translate}}</button>
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="logout()" style="margin-left: 10px;">{{'Logout' | translate}}</button>
         </li>
       </ul>
     </div>

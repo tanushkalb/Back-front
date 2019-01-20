@@ -9,6 +9,7 @@ import {RecipesInfo} from '../auth/recipes';
 import {Rating} from '../auth/rating';
 import {HttpClient} from '@angular/common/http';
 import {IngredientInfo} from '../auth/ingredientInfo';
+import {and} from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -35,9 +36,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
-          this.all = ingredients.map(ingredient => ingredient.name);
-      });
+    this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
+      this.all = ingredients.map(ingredient => ingredient.name);
+    });
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
@@ -47,9 +48,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+
     this.loginInfo = new AuthLoginInfo(
       this.form.username,
-      this.form.password);
+      this.form.password
+    );
 
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
@@ -66,8 +69,15 @@ export class LoginComponent implements OnInit {
         console.log(error);
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
+        if (this.errorMessage === 'Fail -> Email doesn`t valid!' && this.isLoginFailed === true) {
+          this.isLoginFailed = false;
+        } else {
+          this.isLoginFailed = true;
+          this.errorMessage = null;
+        }
       }
     );
+
   }
 
 
@@ -85,12 +95,18 @@ export class LoginComponent implements OnInit {
     if (data === undefined || data === null) {
       this.rating.rating = this.starsCount;
       this.rating.active = 1;
-      this.userService.createRating(this.rating, recipeId).subscribe(() => { this.getOrder(); this.getOrderByDate()});
+      this.userService.createRating(this.rating, recipeId).subscribe(() => {
+        this.getOrder();
+        this.getOrderByDate();
+      });
       console.log('a');
       //this.return();
-    }  else {
+    } else {
       this.rating.rating = this.starsCount;
-      this.userService.updateRating(this.rating, recipeId).subscribe(() => { this.getOrder(); this.getOrderByDate()});
+      this.userService.updateRating(this.rating, recipeId).subscribe(() => {
+        this.getOrder();
+        this.getOrderByDate();
+      });
       //this.return();
       console.log('s');
     }

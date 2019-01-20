@@ -1,9 +1,10 @@
+<div class="semiopacity">
 <h2> {{'User Details' | translate}}</h2>
 <mat-chip-list >
   <h2>{{'Tags' | translate}}:</h2>
-  <mat-chip color="primary" selected (click)="getAll()">All ingredients
+  <mat-chip color="warn" selected (click)="getAll()">{{'All ingredients' | translate}}
   </mat-chip>
-  <mat-chip color="warn" selected *ngFor="let ingredient of all" [value]="ingredient.name" (click)="getSearchRecipes(ingredient)">{{ingredient.name}}
+  <mat-chip color="primary" selected *ngFor="let ingredient of all" [value]="ingredient.name" (click)="getSearchRecipes(ingredient)">{{ingredient.name}}
   </mat-chip>
 </mat-chip-list>
 <table class="table table-striped">
@@ -22,9 +23,10 @@
       </rating>
     </td>
     <td>
-      <button class="btn btn-success" (click)="goToCheck(recipe)"
-              style="margin-left: 20px;"> {{'CHECK' | translate}}</button>
+      <button class="btn float"  (click)="goToCheck(recipe)"
+              style="background-color: skyblue;"> {{'CHECK' | translate}}</button>
     </td>
   </tr>
   </tbody>
 </table>
+</div>

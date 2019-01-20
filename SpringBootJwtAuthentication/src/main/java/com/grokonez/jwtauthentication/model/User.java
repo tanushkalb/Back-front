@@ -46,6 +46,8 @@ public class User{
     @Email
     private String email;
 
+    private String activationCode;
+
     @NotBlank
     @Size(min=2, max = 100)
     private String password;
@@ -55,9 +57,6 @@ public class User{
     	joinColumns = @JoinColumn(name = "user_id"), 
     	inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
-
-
 
     @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Comments> comments;
@@ -72,10 +71,6 @@ public class User{
     @JsonIgnore
     @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Likes> likes;
-
-
-
-
 
 
     public User() {}
@@ -179,5 +174,13 @@ public class User{
 
     public void setRatings(Set<Rating> ratings) {
         this.ratings = ratings;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
     }
 }

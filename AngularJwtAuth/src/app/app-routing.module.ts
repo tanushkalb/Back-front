@@ -3,7 +3,6 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
-import {HomeComponent} from './home/home.component';
 import {UserComponent} from './user/user.component';
 import {PmComponent} from './pm/pm.component';
 import {AdminComponent} from './admin/admin.component';
@@ -14,10 +13,6 @@ import {EditRecipeComponent} from './edit-recipe/edit-recipe.component';
 import {AllrecipesComponent} from './allrecipes/allrecipes.component';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent
-  },
   {
     path: 'user',
     component: UserComponent
@@ -40,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
   {

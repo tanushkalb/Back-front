@@ -1,0 +1,6 @@
+.semiopacity {
+  filter: alpha(Opacity=70);
+  background-color: rgba(0, 000, 000, 0.7); /* Цвет фона и значение прозрачности */
+  padding: 10px; /* Поля вокруг текста */
+  color: #fff;
+}

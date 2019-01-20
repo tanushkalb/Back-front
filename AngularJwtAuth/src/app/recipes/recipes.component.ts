@@ -17,8 +17,11 @@ export class RecipesComponent implements OnInit {
   ingredients: IngredientInfo[];
   cols: any[];
   allIngredients: IngredientInfo[] = [];
+  allIngredients1: Array<string> = [];
   yearFilter: number;
-  yearTimeout: any;
+  ratingFilter: number;
+  hourTimeout: any;
+  ratingTimeout: any;
   brands: SelectItem[];
   constructor(private router: Router, private userService: UserService) {
   }
@@ -27,12 +30,11 @@ export class RecipesComponent implements OnInit {
     this.cols = [
       { field: 'title', header: 'Title' },
       { field: 'category', header: 'Category' },
-      { field: 'rating', header: 'Rating' },
+      { field: 'averageRating', header: 'Rating' },
       { field: 'date', header: 'Date' },
-      {field: 'allIngredient', header: 'Ingredient'},
-      {field: 'button', header: 'Act'},
-      { field: 'brand', header: 'Brand' }
-    ];
+      {field: 'ingredients', header: 'Ingredient'},
+      {field: 'button', header: 'Act'}
+          ];
 
     this.userService.getRecipesByCarrentUser()
       .subscribe(data => {
@@ -41,7 +43,7 @@ export class RecipesComponent implements OnInit {
       });
     this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
       this.allIngredients = ingredients.map(ingredient => ingredient);
-      console.log(this.allIngredients);
+      // console.log(this.allIngredients);
     });
 
     this.brands = [
@@ -52,14 +54,26 @@ export class RecipesComponent implements OnInit {
   }
 
 
+
+
+
   onYearChange(event, dt) {
-    if (this.yearTimeout) {
-      clearTimeout(this.yearTimeout);
+    if (this.hourTimeout) {
+      clearTimeout(this.hourTimeout);
     }
 
-    this.yearTimeout = setTimeout(() => {
-      dt.filter(event.value, 'year', 'gt');
-    }, 250);
+    this.hourTimeout = setTimeout(() => {
+      dt.filter(event.value, 'hour', 'gt');
+    }, 20);
+  }
+
+  onRatingChange(event, dt) {
+    if (this.ratingTimeout) {
+      clearTimeout(this.ratingTimeout);
+    }
+    this.ratingTimeout = setTimeout(() => {
+      dt.filter(event.value, 'rating', 'gt');
+    }, 200);
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RecipesInfo} from '../auth/recipes';
 import {Rating} from '../auth/rating';
 import {AuthService} from '../auth/auth.service';
@@ -20,6 +20,7 @@ export class AllrecipesComponent implements OnInit {
   recipes: RecipesInfo[];
   all: IngredientInfo[] = [];
   selectedIngredient: IngredientInfo;
+
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
               private router: Router, private userService: UserService, private http: HttpClient) {
   }
@@ -48,40 +49,41 @@ export class AllrecipesComponent implements OnInit {
       this.rating.active = 1;
       this.userService.createRating(this.rating, recipeId).subscribe(() => this.return());
 
-    }  else {
+    } else {
       this.rating.rating = this.starsCount;
       this.userService.updateRating(this.rating, recipeId).subscribe(() => this.return());
       console.log('s');
     }
   }
+
   getSearchRecipes(Ingredient): void {
     this.selectedIngredient = Ingredient;
     this.userService.getRecipesByIngredient(Ingredient)
-      .subscribe( data => {
+      .subscribe(data => {
         this.recipes = data;
         this.recipes.forEach((rec) => {
           this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
-        })
+        });
       });
   }
+
   return(): void {
-    if(this.selectedIngredient) {
+    if (this.selectedIngredient) {
       this.getSearchRecipes(this.selectedIngredient);
-    }
-    else {
+    } else {
       this.getAll();
     }
   }
 
-getAll(): void {
+  getAll(): void {
     this.selectedIngredient = null;
-  this.userService.getRecipes()
-    .subscribe(data1 => {
-      this.recipes = data1;
-      this.recipes.forEach((rec) => {
-        this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
+    this.userService.getRecipes()
+      .subscribe(data1 => {
+        this.recipes = data1;
+        this.recipes.forEach((rec) => {
+          this.userService.getAverageRatingByRecipeId(rec.id).subscribe(data2 => rec.recipe_rating = data2);
+        });
       });
-    });
-}
+  }
 
 }
