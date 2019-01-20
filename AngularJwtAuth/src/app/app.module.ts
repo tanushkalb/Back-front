@@ -9,7 +9,6 @@ import {LoginComponent} from './login/login.component';
 import {UserComponent} from './user/user.component';
 import {RegisterComponent} from './register/register.component';
 import {AdminComponent} from './admin/admin.component';
-import {PmComponent} from './pm/pm.component';
 
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import {RecipesComponent} from './recipes/recipes.component';
@@ -28,7 +27,7 @@ import {EditorModule} from 'primeng/editor';
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import {SliderModule} from 'primeng/slider';
-import {DropdownModule, MultiSelectModule} from 'primeng/primeng';
+import {CalendarModule, DropdownModule, InputTextModule, MultiSelectModule} from 'primeng/primeng';
 
 
 
@@ -40,7 +39,6 @@ import {DropdownModule, MultiSelectModule} from 'primeng/primeng';
     UserComponent,
     RegisterComponent,
     AdminComponent,
-    PmComponent,
     RecipesComponent,
     AddrecipesComponent,
     RecipeinfoComponent,
@@ -66,6 +64,8 @@ import {DropdownModule, MultiSelectModule} from 'primeng/primeng';
     SliderModule,
     MultiSelectModule,
     DropdownModule,
+    CalendarModule,
+    InputTextModule,
     // Put ionic2-rating module here
     TranslateModule.forRoot({
       loader: {

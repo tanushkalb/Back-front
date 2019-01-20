@@ -12,7 +12,7 @@ public class Likes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    private long click;
+    private Long click;
 
 
 

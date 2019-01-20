@@ -40,7 +40,9 @@ export class AllrecipesComponent implements OnInit {
   }
 
   createRating(recipeId): void {
-    this.userService.getRatingByUserRecipeId(recipeId).subscribe(data => this.save(data, recipeId));
+    if (this.tokenStorage.getToken()) {
+      this.userService.getRatingByUserRecipeId(recipeId).subscribe(data => this.save(data, recipeId));
+    }
   }
 
   save(data, recipeId) {

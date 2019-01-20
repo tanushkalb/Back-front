@@ -83,7 +83,7 @@ export class UserService {
   }
 
 
-  public getLikesByUserIdAndCommentId(commentId) {
+  public getClickLikesByUserIdAndCommentId(commentId) {
     return this.http.get(this.Url + 'like/userId/commentId/' + this.tokenStorage.getUser().id + '/' + commentId)
       .pipe(map(response => response[0]), pipe(map(u => u.click)));
   }

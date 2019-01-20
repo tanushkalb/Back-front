@@ -29,8 +29,8 @@
     </div>
     <div>
       <!--<mat-icon [ngStyle]="{background: comment.commentClick === 1 ?'red': 'blue'}" (click)="createLike(comment.id, comment)">favorite </mat-icon>{{comment.comment_like}}-->
-      <mat-icon *ngIf="comment.commentClick === 1" class="heard"(click)="createLike(comment.id, comment)">favorite </mat-icon>
-      <mat-icon *ngIf="comment.commentClick === 0" class="heard"(click)="createLike(comment.id, comment)">favorite_border </mat-icon>
+      <mat-icon *ngIf="comment.isLike === 1" class="heard"(click)="createLike(comment.id, comment)">favorite </mat-icon>
+      <mat-icon *ngIf="comment.isLike === 0" class="heard"(click)="createLike(comment.id, comment)">favorite_border </mat-icon>
 
     </div>
     <!--</div>-->
@@ -40,5 +40,13 @@
   <button id="button" class="btn" type="button" style="background-color: skyblue; margin-top: 10px;" (click)="createComment()">{{'CommentButton' | translate}}</button>
 </div>
   </mat-card>
+  <br>
+  <br>
+
+
+
+
+
+
 </div>
 

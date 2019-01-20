@@ -36,12 +36,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
-      this.all = ingredients.map(ingredient => ingredient.name);
-    });
+
+
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
+      this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
+        this.all = ingredients.map(ingredient => ingredient.name);
+      });
     }
     this.getOrder();
     this.getOrderByDate();
@@ -56,7 +58,6 @@ export class LoginComponent implements OnInit {
 
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
-
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUsername(data.username);
         this.tokenStorage.saveAuthorities(data.authorities);
@@ -64,6 +65,9 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
+        this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
+          this.all = ingredients.map(ingredient => ingredient.name);
+        });
       },
       error => {
         console.log(error);

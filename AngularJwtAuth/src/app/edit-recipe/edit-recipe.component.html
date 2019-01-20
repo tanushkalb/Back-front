@@ -1,6 +1,6 @@
 <div class="col-md-6">
   <h2 class="text-center">{{'New recipe' | translate}}</h2>
-  <form>
+  <form *ngIf="recipe">
     <div class="form-group">
       <label for="email">{{'Title' | translate}}</label>
       <input type="email" [(ngModel)]="recipe.title" placeholder="Recipe title" name="email" class="form-control" id="email">

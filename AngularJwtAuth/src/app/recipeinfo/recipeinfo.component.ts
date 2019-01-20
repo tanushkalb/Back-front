@@ -44,13 +44,13 @@ export class RecipeinfoComponent implements OnInit {
       });
 
     this.update();
-    // let timer1 = timer(10,3000);
-    //
-    // timer1.subscribe( () =>
-    //   this.update()
-    // );
-    // this.comment.comment_like = data1
-    // console.log(data1)
+    let timer1 = timer(10,3000);
+
+    timer1.subscribe( () =>
+      this.update()
+    );
+    this.comment.comment_like = data1
+    console.log(data1)
   }
 
 // Добавить таймер для обновления комментов из базы
@@ -63,9 +63,10 @@ export class RecipeinfoComponent implements OnInit {
   }
 
   createLike(commentId, comment): void {
-
-    this.userService.getLikesByUserIdAndComment(commentId).subscribe(data => this.save(data, commentId, comment));
-
+    comment.isLike ? comment.isLike = 0 : comment.isLike = 1;
+    if (this.tokenStorage.getToken()) {
+      this.userService.getLikesByUserIdAndComment(commentId).subscribe(data => this.save(data, commentId, comment));
+    }
 
     // this.save(data, commentId)
     // this.like.click += 1;
@@ -75,21 +76,20 @@ export class RecipeinfoComponent implements OnInit {
 
   save(data, commentId, comment) {
     if (data === undefined || data === null) {
-      this.like.click = comment.commentClick = 1;
+      this.like.click =1;
       this.userService.createLike(this.like, commentId).subscribe(() => this.update());
       this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
       console.log('yes1');
     } else {
       if (data.click === 0) {
-        this.like.click = comment.commentClick = 1;
-        // this.comment.active = 1;
+        this.like.click = 1;
         //update comment this.userservice.updatecomment(this.comment, this.commentId//передается параметр методу
         // обнолвяем конкретный коммент)
         this.userService.updateLike(this.like, commentId).subscribe(() => this.update());
         this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
         console.log(comment);
       } else {
-        this.like.click = comment.commentClick = 0;
+        this.like.click = 0;
         this.userService.updateLike(this.like, commentId).subscribe(() => this.update());
         this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
         console.log(comment);
@@ -105,9 +105,18 @@ export class RecipeinfoComponent implements OnInit {
       .subscribe(data => {
         this.comments = data;
         this.comments.forEach((com) => {
-          if (this.tokenStorage.getToken()) {
+          // if (this.tokenStorage.getToken()) {
             this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
-          }
+            this.userService.getLikesByUserIdAndComment(com.id).subscribe( data2 => {
+                if (data2) {
+                  com.isLike = data2.click;
+                } else {
+                  com.isLike = 0;
+                }
+              }
+              );
+          // }
+
         });
       });
   }

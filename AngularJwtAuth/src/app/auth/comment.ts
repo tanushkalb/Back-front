@@ -9,4 +9,5 @@ export class Comment {
   recipe_comment: number;
   comment_like: number;
   commentClick: number;
+  isLike?: number;
 }

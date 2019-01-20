@@ -47,7 +47,6 @@ public class User{
     private String email;
 
     private String activationCode;
-
     @NotBlank
     @Size(min=2, max = 100)
     private String password;
@@ -183,4 +182,5 @@ public class User{
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
     }
+
 }
