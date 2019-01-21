@@ -76,10 +76,10 @@
 
         <label for="password">{{'Password' | translate}}</label>
         <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-               required minlength="6"/>
+               required />
         <div *ngIf="f.submitted && password.invalid">
           <div *ngIf="password.errors.required" class="alert alert-danger">{{'Password is required' | translate}}</div>
-          <div *ngIf="password.errors.minlength" class="alert alert-danger">{{'Password must be at least 6 characters' | translate}}</div>
+          <!--<div *ngIf="password.errors.minlength" class="alert alert-danger">{{'Password must be at least 6 characters' | translate}}</div>-->
         </div>
 
       </div>

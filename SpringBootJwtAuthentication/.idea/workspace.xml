@@ -2,31 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="589d567d-ee5b-4609-91e5-d31b246f2a8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/addrecipes/addrecipes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/addrecipes/addrecipes.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/admin/admin.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/admin/admin.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/admin/admin.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/admin/admin.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/auth/comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/auth/comment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/edit-recipe/edit-recipe.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/edit-recipe/edit-recipe.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/edit-recipe/edit-recipe.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/edit-recipe/edit-recipe.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipeinfo/recipeinfo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipeinfo/recipeinfo.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipeinfo/recipeinfo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipeinfo/recipeinfo.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipes/recipes.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipes/recipes.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipes/recipes.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipes/recipes.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipes/recipes.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/recipes/recipes.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/register/register.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/app/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/user/user.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/user/user.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/user/user.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/app/user/user.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/assets/i18n/by.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/assets/i18n/by.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/assets/i18n/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/assets/i18n/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AngularJwtAuth/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AngularJwtAuth/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e0cfc691-979b-498c-a87b-7a79885f9ad6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e0cfc691-979b-498c-a87b-7a79885f9ad6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/LikeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/LikeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Comments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/CommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/LikeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/LikeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/LikeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/LikeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/model/Comments.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/model/Comments.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/repository/LikeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/repository/LikeRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/security/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RecipesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RecipesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/TestRestAPIs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/CORSFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/AuthRestAPIs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/AuthRestAPIs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/RecipesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/RecipesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/controller/TestRestAPIs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/security/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/grokonez/jwtauthentication/security/services/UserService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,111 +73,51 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Recipes.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/response/JwtResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="33" />
+            <state relative-caret-position="193">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding>
-                <element signature="e#2738#2739#0" expanded="true" />
-                <element signature="e#2769#2770#0" expanded="true" />
-                <element signature="e#2817#2818#0" expanded="true" />
-                <element signature="e#2857#2858#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#753#754#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
+                <element signature="e#806#807#0" expanded="true" />
+                <element signature="e#829#830#0" expanded="true" />
+                <element signature="e#912#913#0" expanded="true" />
+                <element signature="e#949#950#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/LikeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/WebSecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="59" column="147" selection-start-line="59" selection-start-column="109" selection-end-line="59" selection-end-column="147" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/UserController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#539#540#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="87">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Send/CommentsSend.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/response/ResponseMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-              <folding>
-                <element signature="e#559#560#0" expanded="true" />
-                <element signature="e#637#638#0" expanded="true" />
-                <element signature="e#707#708#0" expanded="true" />
-                <element signature="e#805#806#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="40">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Comments.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/CommentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="434">
+              <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/CommentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="43" column="46" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/LikeRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/LikeServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -237,27 +190,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RatingServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/RecipeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/LikeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/IngredientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RatingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/IngredientReposirory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Ingredients.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/RecipesRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RecipesController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/UserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/request/SignUpForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/MailSender.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/MailConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/JwtAuthEntryPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/SpringBootJwtAuthenticationApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/UsernamePasswordAcriveToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/request/LoginForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Recipes.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Likes.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/CommentRepository.java" />
@@ -269,6 +217,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/CommentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RecipesController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java" />
       </list>
     </option>
   </component>
@@ -408,6 +361,16 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jwtauthentication" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="jwt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringBootJwtAuthentication" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringBootJwtAuthentication" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="jwtauthentication" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -446,7 +409,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548025160078" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548071881185" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../fanfics-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -496,12 +459,12 @@
       <workItem from="1547660363263" duration="7252000" />
       <workItem from="1547716127659" duration="1440000" />
       <workItem from="1547725125062" duration="18475000" />
-      <workItem from="1547886971322" duration="44071000" />
+      <workItem from="1547886971322" duration="52618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289006000" />
+    <option name="totallyTimeSpent" value="297553000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -526,8 +489,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.35410765" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27053824" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.25637394" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.44334278" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -593,94 +556,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java</url>
-          <line>88</line>
-          <properties class="com.grokonez.jwtauthentication.controller.AuthRestAPIs" method="method">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java</url>
-          <line>89</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java</url>
-          <line>91</line>
-          <properties />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/JwtAuthTokenFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="49" column="65" selection-start-line="49" selection-start-column="65" selection-end-line="49" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/IngredientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/IngredientReposirory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/RecipesRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RatingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/RecipesServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
@@ -692,16 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -739,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Rating.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Ingredients.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -760,13 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/JwtProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -791,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.8.RELEASE/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-747">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Throwable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -806,38 +655,6 @@
             <element signature="e#15711#15712#0" expanded="true" />
             <element signature="e#15747#15748#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/response/ResponseMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/response/JwtResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#727#728#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#949#950#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/JwtAuthEntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -855,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.8.RELEASE/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/authentication/AuthenticationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="58" column="30" lean-forward="true" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.8.RELEASE/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/authentication/UsernamePasswordAuthenticationToken.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -872,31 +682,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/UserDetailsServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/request/LoginForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding>
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -910,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RecipesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="90" column="49" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -924,24 +706,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserPrinciple.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="36" lean-forward="true" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -995,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/LikeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/repository/LikeRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1023,29 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Send/CommentsSend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
-          <folding>
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#805#806#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/CommentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/CommentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
@@ -1053,22 +791,212 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="59" column="147" selection-start-line="59" selection-start-column="109" selection-end-line="59" selection-end-column="147" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state relative-caret-position="338">
           <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#539#540#0" expanded="true" />
             <element signature="e#595#596#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Send/CommentsSend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+          <folding>
+            <element signature="e#530#531#0" expanded="true" />
+            <element signature="e#559#560#0" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/CommentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/LikeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RatingServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/RecipesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="92" column="7" lean-forward="true" selection-start-line="92" selection-start-column="7" selection-end-line="92" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/model/Rating.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/ServiceImpl/RecipeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="40" column="47" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/TestRestAPIs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/response/JwtResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.8.RELEASE/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/core/context/SecurityContextHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.8.RELEASE/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/core/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.8.RELEASE/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/authentication/AuthenticationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.0.8.RELEASE/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/core/userdetails/UserDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/CORSFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#1580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/JwtAuthEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/JwtProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/request/LoginForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/jwt/JwtAuthTokenFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/message/response/ResponseMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/security/services/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="67" column="9" lean-forward="true" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/grokonez/jwtauthentication/controller/AuthRestAPIs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
         </state>
       </provider>
     </entry>

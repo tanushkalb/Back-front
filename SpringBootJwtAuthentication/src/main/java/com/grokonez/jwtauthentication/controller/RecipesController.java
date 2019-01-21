@@ -74,7 +74,6 @@ public class RecipesController {
     public Recipes createRecipe(@PathVariable("userId") long id, @RequestBody Recipes recipes) {
         User persona = userRepository.findById(id).get();
         recipes.setUser(persona);
-
         recipes.setDate(new Date());
         recipes.setIngredients(recipes.getIngredients());
         return recipeService.save(recipes);

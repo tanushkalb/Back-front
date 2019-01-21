@@ -57,23 +57,11 @@ public class AuthRestAPIs {
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
-		User userActive = userRepository.findByUsername(loginRequest.getUsername()).get();
-		if (!(userActive.getActivationCode() == null)) {
-			return new ResponseEntity<>(new ResponseMessage("Fail -> Email doesn`t valid!"),
-					HttpStatus.BAD_REQUEST);
-		} else {
 
-			Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+		ResponseEntity<?> registerMessage = userService.signIn(loginRequest);
 
-			SecurityContextHolder.getContext().setAuthentication(authentication);
+		return registerMessage;
 
-			String jwt = jwtProvider.generateJwtToken(authentication);
-			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-			User user = userRepository.findByUsername(userDetails.getUsername()).get();
-
-			return ResponseEntity.ok(new JwtResponse(jwt, user, userDetails.getUsername(), userDetails.getAuthorities()));
-		}
 	}
 
 	@PostMapping("/signup")

@@ -36,8 +36,12 @@
     <!--</div>-->
   </div>
 <div *ngIf="tokenStorage.getToken()">
-  <input (keyup.enter)="createComment()" [(ngModel)]="searchValue" type="text" id="input" style="width: 50%" [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control">
-  <button id="button" class="btn" type="button" style="background-color: skyblue; margin-top: 10px;" (click)="createComment()">{{'CommentButton' | translate}}</button>
+  <form #f= "ngForm">
+  <input (keyup.enter)="createComment(f.valid)" #commentfield="ngModel" required type="text" id="input" style="width: 50%" [(ngModel)]="searchValue" [(ngModel)]="comment.description" placeholder="{{'Comment' | translate}}" name="firstName" class="form-control">
+  <div *ngIf="commentfield.invalid && commentfield.touched">
+  </div>
+  <button id="button" class="btn" type="button" [disabled]="f.invalid" style="background-color: skyblue; margin-top: 10px;" (click)="createComment(true)">{{'CommentButton' | translate}}</button>
+  </form>
 </div>
   </mat-card>
   <br>

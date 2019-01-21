@@ -25,18 +25,6 @@ export class UserService {
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {
   }
 
-  getUserBoard(): Observable<string> {
-    return this.http.get(this.userUrl, {responseType: 'text'});
-  }
-
-  getPMBoard(): Observable<string> {
-    return this.http.get(this.pmUrl, {responseType: 'text'});
-  }
-
-  getAdminBoard(): Observable<string> {
-    return this.http.get(this.adminUrl, {responseType: 'text'});
-  }
-
   public getRecipes() {
     return this.http.get<RecipesInfo[]>(this.recipesUrl );
   }

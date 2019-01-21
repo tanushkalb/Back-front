@@ -73,6 +73,7 @@ export class LoginComponent implements OnInit {
         console.log(error);
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
+
         if (this.errorMessage === 'Fail -> Email doesn`t valid!' && this.isLoginFailed === true) {
           this.isLoginFailed = false;
         } else {

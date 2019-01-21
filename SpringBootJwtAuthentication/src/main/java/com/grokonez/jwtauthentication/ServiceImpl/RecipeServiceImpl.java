@@ -30,7 +30,6 @@ public class RecipeServiceImpl implements RecipeService {
             Optional<Ingredients> Optionalingredient = ingredientReposirory.findByName(ingredients.getName());
             Ingredients ingredient;
             if(Optionalingredient.isPresent()){
-
                 ingredient = ingredientReposirory.save(Optionalingredient.get());
             }
             else {

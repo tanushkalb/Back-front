@@ -6,9 +6,7 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
-import {UserComponent} from './user/user.component';
 import {RegisterComponent} from './register/register.component';
-import {AdminComponent} from './admin/admin.component';
 
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import {RecipesComponent} from './recipes/recipes.component';
@@ -30,15 +28,11 @@ import {SliderModule} from 'primeng/slider';
 import {CalendarModule, DropdownModule, InplaceModule, InputTextModule, MultiSelectModule} from 'primeng/primeng';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent,
     RegisterComponent,
-    AdminComponent,
     RecipesComponent,
     AddrecipesComponent,
     RecipeinfoComponent,

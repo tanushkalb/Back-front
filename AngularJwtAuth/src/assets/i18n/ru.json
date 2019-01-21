@@ -58,6 +58,13 @@
   "Save": "Сохранить",
   "Name": "Имя",
   "Date": "Дата",
-  "Act": "Действие"
+  "Act": "Действие",
+  "Your registration was successful. Please confirm your account in the mail!":"Ваша регистрация прошла успешно. Пожалуйста, подтвердите аккаунт на почте!",
+  "All Ingredients": "Все игредиенты",
+  "Category is required": "Категория обязательна",
+  "Description is required": "Описание обязательно",
+  "Category must be at least 3 characters": "Категория должна содержать не менее 3 символов",
+  "Description must be at least 3 characters": "Описание должно содержать не менее 3 символов"
+
 
 }

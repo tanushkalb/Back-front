@@ -56,7 +56,11 @@
   "Save": "Захаваць",
   "Name": "Iмя",
   "Date": "Дата",
-  "Act": "Дзеянне"
-
-
+  "Act": "Дзеянне",
+"Your registration was successful. Please confirm your account in the mail!":"Ваша рэгістрацыя прайшла паспяхова. Калі ласка, пацвердзіце рахунак на пошце!",
+  "All Ingredients": "Усе інгрэдыенты",
+  "Category is required": "Катыгорыя абавязкова",
+  "Description is required": "Апiсанне абавязкова",
+  "Category must be at least 3 characters": "Катыгорыя павінна быць не менш за 3-х знакаў",
+  "Description must be at least 3 characters": "Апiсанне павінна быць не менш за 3-х знакаў"
 }

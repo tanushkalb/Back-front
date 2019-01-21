@@ -1226,7 +1226,6 @@
     <column id="309" parent="285" name="click">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="310" parent="285" name="comment_id">

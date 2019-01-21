@@ -53,12 +53,15 @@ export class RecipeinfoComponent implements OnInit {
   }
 
 // Добавить таймер для обновления комментов из базы
-  createComment(): void {
-    this.searchValue = null;
-    this.userService.createComment(this.comment, this.recipeId)
-      .subscribe(() =>
-        this.update()
-      );
+  createComment(save: boolean = false): void {
+    if (save) {
+      this.searchValue = null;
+      console.log(this.comments);
+      this.userService.createComment(this.comment, this.recipeId)
+        .subscribe(() =>
+          this.update()
+        );
+    }
   }
 
   createLike(commentId, comment): void {
@@ -106,24 +109,7 @@ export class RecipeinfoComponent implements OnInit {
       .subscribe(data => {
         this.comments = data;
       });
-    }
-
-        // this.comments.forEach((com) => {
-        //   // if (this.tokenStorage.getToken()) {
-        //     this.userService.getCountLikeByCommentId(com.id).subscribe(data1 => com.comment_like = data1);
-        //     this.userService.getLikesByUserIdAndComment(com.id).subscribe( data2 => {
-        //         if (data2) {
-        //           com.isLike = data2.click;
-        //         } else {
-        //           com.isLike = 0;
-        //         }
-        //       }
-        //       );
-        //   // }
-        //
-        // });
-
-   else {
+    }  else {
   this.userService.getCommentByReceptId(this.recipeId)
     .subscribe(data => this.comments = data );
 }

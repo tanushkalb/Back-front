@@ -31,7 +31,9 @@
               "../AngularJwtAuth/node_modules/quill/dist/quill.snow.css",
               "../AngularJwtAuth/node_modules/primeicons/primeicons.css"
             ],
-            "scripts": ["../AngularJwtAuth/node_modules/quill/dist/quill.js"]
+            "scripts": ["../AngularJwtAuth/node_modules/quill/dist/quill.js",
+              "../AngularJwtAuth/node_modules/jquery/dist/jquery.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,7 +89,10 @@
               "../AngularJwtAuth/node_modules/quill/dist/quill.snow.css"
 
             ],
-            "scripts": ["../AngularJwtAuth/node_modules/quill/dist/quill.js"],
+            "scripts": ["../AngularJwtAuth/node_modules/quill/dist/quill.js",
+              "../AngularJwtAuth/node_modules/jquery/dist/jquery.js"
+
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

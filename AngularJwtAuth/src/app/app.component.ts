@@ -82,9 +82,11 @@ export class AppComponent implements OnInit {
 
   switchLanguage(language: string) {
     this.translate.use(language);
-    this.user.lang = language;
-    this.userService.updateUser(this.user)
-      .subscribe();
+    if (this.user) {
+      this.user.lang = language;
+      this.userService.updateUser(this.user)
+        .subscribe();
+    }
     //console.log(this.user);
   }
 

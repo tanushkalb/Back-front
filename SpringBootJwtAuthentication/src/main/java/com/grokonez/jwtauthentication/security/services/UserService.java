@@ -1,15 +1,23 @@
 package com.grokonez.jwtauthentication.security.services;
 
+import com.grokonez.jwtauthentication.message.request.LoginForm;
 import com.grokonez.jwtauthentication.message.request.SignUpForm;
+import com.grokonez.jwtauthentication.message.response.JwtResponse;
 import com.grokonez.jwtauthentication.message.response.ResponseMessage;
 import com.grokonez.jwtauthentication.model.Role;
 import com.grokonez.jwtauthentication.model.RoleName;
 import com.grokonez.jwtauthentication.model.User;
 import com.grokonez.jwtauthentication.repository.RoleRepository;
 import com.grokonez.jwtauthentication.repository.UserRepository;
+import com.grokonez.jwtauthentication.security.jwt.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -32,6 +40,34 @@ public class UserService {
 
     @Autowired
     private MailSender mailSender;
+
+    @Autowired
+    AuthenticationManager authenticationManager;
+
+    @Autowired
+    JwtProvider jwtProvider;
+
+
+    public ResponseEntity<?> signIn(LoginForm loginRequest) {
+        User userActive = userRepository.findByUsername(loginRequest.getUsername()).get();
+        if (!(userActive.getActivationCode() == null)) {
+            return new ResponseEntity<>(new ResponseMessage("Fail -> Email doesn`t valid!"),
+                    HttpStatus.BAD_REQUEST);
+        } else {
+
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+
+            String jwt = jwtProvider.generateJwtToken(authentication);
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            User user = userRepository.findByUsername(userDetails.getUsername()).get();
+
+            return ResponseEntity.ok(new JwtResponse(jwt, user, userDetails.getUsername(), userDetails.getAuthorities()));
+        }
+
+    }
 
     public ResponseEntity<?> addUser(SignUpForm signUpRequest) {
 
@@ -71,18 +107,6 @@ public class UserService {
 
         strRoles.forEach(role -> {
             switch (role) {
-                case "admin":
-                    Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
-                            .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-                    roles.add(adminRole);
-
-                    break;
-                case "pm":
-                    Role pmRole = roleRepository.findByName(RoleName.ROLE_PM)
-                            .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-                    roles.add(pmRole);
-
-                    break;
                 default:
                     Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));

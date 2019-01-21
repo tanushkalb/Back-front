@@ -86,22 +86,22 @@ user: User;
     //this.buttons = [label: 'Check', 'change', 'delete'];
   }
 
-act(data, event) {
-  console.log(event);
-    if (event.value === 'check') {
-      console.log('aasf');
-    this.goToCheck(data);
-}
-  if (event.value === 'change') {
-    console.log('aasf');
-    this.editRecipe(data);
-  }
-  if (event.value === 'delete') {
-    console.log('aasf');
-    this.deleteRecipe(data);
-  }
-
-  }
+// act(data, event) {
+//   console.log(event);
+//     if (event.value === 'check') {
+//       console.log('aasf');
+//     this.goToCheck(data);
+// }
+//   if (event.value === 'change') {
+//     console.log('aasf');
+//     this.editRecipe(data);
+//   }
+//   if (event.value === 'delete') {
+//     console.log('aasf');
+//     this.deleteRecipe(data);
+//   }
+//
+//   }
 
 
 
@@ -142,12 +142,13 @@ act(data, event) {
   updateUser(save = false) {
     this.isUserNameActive = !this.isUserNameActive;
     if (this.isUserNameActive) {
-      this.savedUserName = this.user.username;
+      this.savedUserName = this.user.name;
+      console.log(this.savedUserName);
     } else {
       if (save) {
-        this.savedUserName = this.user.username;
+        this.savedUserName = this.user.name;
       } else {
-        this.user.username = this.savedUserName;
+        this.user.name = this.savedUserName;
       }
       this.userService.updateUser(this.user).subscribe( data => console.log(data));
     }

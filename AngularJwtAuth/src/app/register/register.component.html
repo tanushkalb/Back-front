@@ -1,5 +1,8 @@
 <div *ngIf="isSignedUp; else signupForm">
-  Your registration is successful. Please login!
+  <br>
+  <mat-card>
+  {{'Your registration was successful. Please confirm your account in the mail!' | translate}}
+  </mat-card>
 </div>
 
 <ng-template #signupForm>
