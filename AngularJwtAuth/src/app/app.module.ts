@@ -26,6 +26,7 @@ import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import {SliderModule} from 'primeng/slider';
 import {CalendarModule, DropdownModule, InplaceModule, InputTextModule, MultiSelectModule} from 'primeng/primeng';
+import { AdminUserListComponent } from './admin-user-list/admin-user-list.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {CalendarModule, DropdownModule, InplaceModule, InputTextModule, MultiSel
     AddrecipesComponent,
     RecipeinfoComponent,
     EditRecipeComponent,
-    AllrecipesComponent
+    AllrecipesComponent,
+    AdminUserListComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,6 @@ import {CalendarModule, DropdownModule, InplaceModule, InputTextModule, MultiSel
     CalendarModule,
     InputTextModule,
     InplaceModule,
-    // Put ionic2-rating module here
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

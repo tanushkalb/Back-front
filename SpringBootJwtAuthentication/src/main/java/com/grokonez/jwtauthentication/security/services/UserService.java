@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -50,10 +51,10 @@ public class UserService {
 
     public ResponseEntity<?> signIn(LoginForm loginRequest) {
         User userActive = userRepository.findByUsername(loginRequest.getUsername()).get();
-        if (!(userActive.getActivationCode() == null)) {
-            return new ResponseEntity<>(new ResponseMessage("Fail -> Email doesn`t valid!"),
-                    HttpStatus.BAD_REQUEST);
-        } else {
+//        if (!(userActive.getActivationCode() == null)) {
+//            return new ResponseEntity<>(new ResponseMessage("Fail -> Email doesn`t valid!"),
+//                    HttpStatus.BAD_REQUEST);
+//        } else {
 
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -64,8 +65,8 @@ public class UserService {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             User user = userRepository.findByUsername(userDetails.getUsername()).get();
 
-            return ResponseEntity.ok(new JwtResponse(jwt, user, userDetails.getUsername(), userDetails.getAuthorities()));
-        }
+            return ResponseEntity.ok(new JwtResponse(jwt, user, userDetails.getUsername()));
+        //}
 
     }
 
@@ -120,4 +121,10 @@ public class UserService {
 
     }
 
+
+    public void deleteUsers (List<User> users) {
+        for (User user : users) {
+            userRepository.deleteById(user.getId());
+        }
+    }
 }

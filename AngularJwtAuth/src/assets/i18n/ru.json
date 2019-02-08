@@ -64,7 +64,8 @@
   "Category is required": "Категория обязательна",
   "Description is required": "Описание обязательно",
   "Category must be at least 3 characters": "Категория должна содержать не менее 3 символов",
-  "Description must be at least 3 characters": "Описание должно содержать не менее 3 символов"
+  "Description must be at least 3 characters": "Описание должно содержать не менее 3 символов",
+  "Value": "Значение"
 
 
 }

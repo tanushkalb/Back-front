@@ -1,0 +1,24 @@
+<h3 class="first">Basic</h3>
+<form name="form" #f="ngForm" novalidate>
+<p-table [value]="users">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>UserName</th>
+      <th>Email</th>
+      <th style="width:2.5em"><input type="checkbox" class="" (change)="ttt($event.target.checked)">
+        </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user>
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td style="text-align: center"><input [ngModel]="state" (change)="onChange(user, $event.target.checked)"
+                 name="{{ user }}" type="checkbox" ></td>
+    </tr>
+  </ng-template>
+</p-table>
+  <button class="btn btn-primary" (click)="delete()" >{{'Delete' | translate}}</button>
+</form>

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, pipe} from 'rxjs';
 import {RecipesInfo} from '../auth/recipes';
 import {TokenStorageService} from '../auth/token-storage.service';
@@ -29,7 +29,9 @@ export class UserService {
     return this.http.get<RecipesInfo[]>(this.recipesUrl );
   }
 
-
+  public getAllUsers() {
+    return this.http.get<User[]>(this.Url + 'user/alluser');
+  }
 
   public getRecipesById(id) {
     return this.http.get<RecipesInfo>(this.recipesUrl + '/' + id);
@@ -171,4 +173,17 @@ export class UserService {
     return this.http.delete(this.recipesUrl + '/' + recipe.id);
   }
 
+  public deleteUsers(users) {
+    return this.http.post(this.Url + 'user/deleteoneusers', users);
+  }
+
+  public deleteOneUsers(users) {
+    console.log(users);
+    return this.http.delete(this.Url + 'user/deleteoneusers', users);
+  }
+
+  public deleteOneRecipe(recipe) {
+    console.log(recipe);
+    return this.http.delete<any[]>(this.Url + 'recipes/deleteonerecipe', recipe);
+  }
 }

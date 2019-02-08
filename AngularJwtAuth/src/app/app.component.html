@@ -5,8 +5,8 @@
         <li *ngIf="tokenStorage.getToken()" class="nav-item">
           <a class="nav-link btn" routerLink="auth/login">{{'Main' | translate}}</a>
         </li>
-        <li *ngIf="authority === 'admin'" class="nav-item">
-          <a class="nav-link" routerLink="admin">Admin Board</a>
+        <li *ngIf="authority === 'admin' && tokenStorage.getToken()" class="nav-item">
+          <a class="nav-link btn " routerLink="adminUserList">Admin Board</a>
         </li>
         <li *ngIf="authority === 'pm'" class="nav-item">
           <a class="nav-link btn btn-outline-success" routerLink="pm">PM Board</a>

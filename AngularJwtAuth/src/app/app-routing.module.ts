@@ -8,6 +8,7 @@ import {AddrecipesComponent} from './addrecipes/addrecipes.component';
 import {RecipeinfoComponent} from './recipeinfo/recipeinfo.component';
 import {EditRecipeComponent} from './edit-recipe/edit-recipe.component';
 import {AllrecipesComponent} from './allrecipes/allrecipes.component';
+import {AdminUserListComponent} from './admin-user-list/admin-user-list.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'allrecipes',
     component: AllrecipesComponent
+  },
+  {
+    path: 'adminUserList',
+    component: AdminUserListComponent
   }
 ];
 

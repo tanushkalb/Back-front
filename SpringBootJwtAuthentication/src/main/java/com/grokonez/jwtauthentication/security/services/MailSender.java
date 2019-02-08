@@ -1,5 +1,6 @@
 package com.grokonez.jwtauthentication.security.services;
 
+import org.apache.logging.log4j.util.SystemPropertiesPropertySource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -24,8 +25,7 @@ public class MailSender {
         mailMessage.setTo(emailTo);
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
-
-        mailSender.send(mailMessage);
+//        mailSender.send(mailMessage);
     }
 
 }

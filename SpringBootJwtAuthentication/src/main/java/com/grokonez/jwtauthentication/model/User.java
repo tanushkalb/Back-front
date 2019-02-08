@@ -31,9 +31,7 @@ public class User{
     @NotBlank
     @Size(min=3, max = 50)
     private String name;
-
     private int theme;
-
     private String lang;
 
     @NotBlank
@@ -67,7 +65,6 @@ public class User{
     @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Rating> ratings;
 
-    @JsonIgnore
     @OneToMany(cascade = REMOVE, mappedBy = "user")
     private Set<Likes> likes;
 

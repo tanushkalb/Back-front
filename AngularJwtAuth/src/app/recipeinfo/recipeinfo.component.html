@@ -21,19 +21,14 @@
     {{comment.description}}
     </div>
     <hr />
-    <!--<div *ngIf="tokenStorage.getToken()">-->
     <div *ngIf="comment.likeCount">
-
       {{comment.likeCount}}
-      <!--<button class="btn btn-success" [ngStyle]="{background: comment.commentClick === 1 ?'red': 'blue'}" (click)="createLike(comment.id, comment)">{{comment.comment_like}} like</button>-->
     </div>
     <div>
-      <!--<mat-icon [ngStyle]="{background: comment.commentClick === 1 ?'red': 'blue'}" (click)="createLike(comment.id, comment)">favorite </mat-icon>{{comment.comment_like}}-->
       <mat-icon *ngIf="comment.isLike === 1" class="heard"(click)="createLike(comment.id, comment)">favorite </mat-icon>
       <mat-icon *ngIf="!comment.isLike" class="heard"(click)="createLike(comment.id, comment)">favorite_border </mat-icon>
 
     </div>
-    <!--</div>-->
   </div>
 <div *ngIf="tokenStorage.getToken()">
   <form #f= "ngForm">

@@ -52,7 +52,6 @@ export class RecipeinfoComponent implements OnInit {
     );
   }
 
-// Добавить таймер для обновления комментов из базы
   createComment(save: boolean = false): void {
     if (save) {
       this.searchValue = null;
@@ -78,15 +77,13 @@ export class RecipeinfoComponent implements OnInit {
 
   save(data, commentId, comment) {
     if (data === undefined || data === null) {
-      this.like.click =1;
+      this.like.click = 1;
       this.userService.createLike(this.like, commentId).subscribe(() => this.update());
       this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
       console.log('yes1');
     } else {
       if (data.click === 0) {
         this.like.click = 1;
-        //update comment this.userservice.updatecomment(this.comment, this.commentId//передается параметр методу
-        // обнолвяем конкретный коммент)
         this.userService.updateLike(this.like, commentId).subscribe(() => this.update());
         this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
         console.log(comment);
@@ -96,14 +93,10 @@ export class RecipeinfoComponent implements OnInit {
         this.userService.updateComment(comment, this.recipeId).subscribe(() => this.update());
         console.log(comment);
       }
-
-      // обавить в таблицу coment поле актив для лайка и записывать
-      // туда значение 0 , 1 вызывать тут и проверять в разметке
     }
   }
 
   update(): void {
-
     if (this.tokenStorage.getToken()) {
     this.userService.getCommentByReceptIdAndUserid(this.recipeId, this.tokenStorage.getUser().id)
       .subscribe(data => {

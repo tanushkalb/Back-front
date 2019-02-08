@@ -59,7 +59,7 @@
           <input *ngSwitchCase="'category'" pInputText type="text"
                  (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
           <div *ngSwitchCase="'averageRating'">
-            Value <= {{ratingFilter - 1}}
+            {{'Value' | translate}} <= {{ratingFilter - 1}}
             <i class="fa fa-close" (click)="ratingFilter=null; dt.filter(null, col.field, col.filterMatchMode)"
                style="cursor:pointer" *ngIf="ratingFilter"></i>
             <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="ratingFilter" [min]="1" [max]="6"

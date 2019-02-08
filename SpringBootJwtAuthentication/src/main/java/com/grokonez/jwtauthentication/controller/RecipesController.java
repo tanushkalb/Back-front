@@ -109,5 +109,8 @@ public class RecipesController {
     public void deleteRecipe(@PathVariable("id") long id) {
         recipesRepository.deleteById(id);
     }
-
+    @DeleteMapping("*/deleteonerecipe")
+    public void deleteOneRecipe(@RequestBody Recipes recipes) {
+        recipesRepository.delete(recipes);
+    }
 }

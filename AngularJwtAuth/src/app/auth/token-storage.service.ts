@@ -45,7 +45,6 @@ export class TokenStorageService {
 
   public saveUser(user: User) {
     window.sessionStorage.removeItem(USER_KEY);
-
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
     this.userChange.emit(user);
   }
@@ -54,15 +53,19 @@ export class TokenStorageService {
     return JSON.parse(sessionStorage.getItem(USER_KEY));
   }
 
+  public deleteToken() {
+
+  }
+
 
   public getAuthorities(): string[] {
     this.roles = [];
 
-    if (sessionStorage.getItem(TOKEN_KEY)) {
-      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)).forEach(authority => {
-        this.roles.push(authority.authority);
-      });
-    }
+    // if (sessionStorage.getItem(TOKEN_KEY)) {
+    //   JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)).forEach(authority => {
+    //     this.roles.push(authority.authority);
+    //   });
+    // }
 
     return this.roles;
   }

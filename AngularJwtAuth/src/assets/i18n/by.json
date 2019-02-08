@@ -62,5 +62,6 @@
   "Category is required": "Катыгорыя абавязкова",
   "Description is required": "Апiсанне абавязкова",
   "Category must be at least 3 characters": "Катыгорыя павінна быць не менш за 3-х знакаў",
-  "Description must be at least 3 characters": "Апiсанне павінна быць не менш за 3-х знакаў"
+  "Description must be at least 3 characters": "Апiсанне павінна быць не менш за 3-х знакаў",
+  "Value": "Значэнне"
 }

@@ -12,11 +12,11 @@ public class JwtResponse {
 	private User user;
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public JwtResponse(String accessToken,User user, String username, Collection<? extends GrantedAuthority> authorities) {
+	public JwtResponse(String accessToken,User user, String username) {
 		this.token = accessToken;
 		this.user = user;
 		this.username = username;
-		this.authorities = authorities;
+		//this.authorities = authorities;
 	}
 
 	public String getType() {

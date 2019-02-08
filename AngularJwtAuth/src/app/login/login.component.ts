@@ -58,13 +58,14 @@ export class LoginComponent implements OnInit {
 
     this.authService.attemptAuth(this.loginInfo).subscribe(
       data => {
+        console.log(data);
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUsername(data.username);
-        this.tokenStorage.saveAuthorities(data.authorities);
+        //this.tokenStorage.saveAuthorities(data.authorities);
         this.tokenStorage.saveUser(data.user);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getAuthorities();
+        this.roles = this.tokenStorage.getUser().roles;
         this.userService.getIngredients().subscribe((ingredients: IngredientInfo[]) => {
           this.all = ingredients.map(ingredient => ingredient.name);
         });
