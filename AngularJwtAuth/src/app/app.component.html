@@ -11,11 +11,9 @@
 		<li *ngIf="authority === 'PM' && tokenStorage.getToken()" class="nav-item">
           <a class="nav-link btn " routerLink="adminUserList">PM Board</a>
         </li>
-<<<<<<< HEAD
-      
-=======
-       
->>>>>>> dd6be9135073a47595ae73e92d3ab0913a8ffaf1
+<li *ngIf="authority === 'PM' && tokenStorage.getToken()" class="nav-item">
+          <a class="nav-link btn ">Copy project</a>
+        </li>
         <li *ngIf="!tokenStorage.getToken()" class="nav-item">
           <a class="nav-link btn " routerLink="auth/login">{{'Login' | translate}}</a>
         </li>
